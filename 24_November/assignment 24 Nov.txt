@@ -1,0 +1,25 @@
+1) Write a Menu driven program in c# to implement simple banking application. Application should read the customer name, account number, initial balance, 
+rate of interest, contact number and address field etc.Application should have following methods.
+1. createAccount()
+2. deposit()
+3. withdraw()
+4. computeInterest()
+5. displayBalance()
+
+2) Create a class Book and define a display method to display book information. Inherit Reference_Book and Magazine classes from Book class and override display 
+method of Book class in Reference_Book and Magazine classes. Make necessary assumptions required.
+
+3) Create an interface vehicle and classes like bicycle,car, bike etc, having common functionalities and put all the common functionalities in the interface. Classes 
+like Bicycle, Bike, car etc implement all these functionalities in their own class in their own way.
+
+4) Write C# program where user will enter loginid and password as input. The password should be 8 digit containing one digit and one special symbol. If user 
+enter valid password satisfying above criteria then show “Login Successful Message”. If user enter invalid Password then create InvalidPasswordException stating Please enter valid password of length 8 containing one digit and one Special Symbol. 
+
+5) C# Program to Create Account with 1000 Rs Minimum Balance, Deposit Amount, Withdraw Amount and Also Throws LessBalanceException. It has a Class Called LessBalanceException Which returns the Statement that Says WithDraw Amount(_Rs) is Not Valid. It has a Class Which Creates 2 Accounts, Both Account Deposite Money 
+and One Account Tries to WithDraw more Money Which Generates a LessBalanceException Take Appropriate Action for the Same.
+
+6) Write a program that takes three points (x1, y1), (x2, y2) and (x3, y3) from the user and the program will check wheteher or not all the three points fall on one straight line.
+
+7) Write a program that takes coordinates (x, y) of a center of a circle and its radius from the user, the program will determine whether a point lies inside the circle, on the circle or outside the circle.
+
+8) Write a program that takes a character from the user and determines whether the character entered is a capital letter, a small case letter, a digit or a special symbol. The following table shows the range of ASCII values for various characters.
