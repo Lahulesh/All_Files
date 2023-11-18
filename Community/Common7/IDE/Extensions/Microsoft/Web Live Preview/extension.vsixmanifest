@@ -1,0 +1,27 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="Microsoft.WebTools.BrowserLink.WebLivePreview" Version="17.8.18.11108" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>Web Live Preview</DisplayName>
+    <Description xml:space="preserve">For ASP.NET Framework projects you can view the source code that generated the selected HTML element. After the source is modified, the web app will be updated automatically.</Description>
+    <License>Resources\License.rtf</License>
+    <Icon>Resources\Icon.png</Icon>
+  </Metadata>
+  <Installation AllUsers="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.WebTools.BrowserLink.LivePreview.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.WebTools.BrowserLink.LivePreview.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.EdgeDevTools.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.EdgeDevTools.pkgdef" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+    <Prerequisite Id="Microsoft.VisualStudio.ComponentGroup.WebToolsExtensions" Version="[17.0,18.0)" DisplayName="ASP.NET and web development" />
+  </Prerequisites>
+</PackageManifest>

@@ -1,0 +1,23 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="Microsoft.VisualStudio.Web.AzureFunctions" Version="17.8.352.38654" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>Azure Functions and Web Jobs Tools</DisplayName>
+    <Description xml:space="preserve">Tools for creating and publishing Azure Functions and Web Jobs</Description>
+    <Icon>functions.ico</Icon>
+    <AllowClientRole>true</AllowClientRole>
+  </Metadata>
+  <Installation AllUsers="true" SystemComponent="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0,17.0)" />
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,17.0)" DisplayName="Visual Studio core editor" />
+    <Prerequisite Id="Microsoft.VisualStudio.Component.Web" Version="[16.0,17.0)" DisplayName="ASP.NET and web development tools" />
+    <Prerequisite Id="Microsoft.Net.Core.Component.SDK.2.1" Version="[16.0,17.0)" DisplayName=".NET Core 2.1" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.WebTools.Azure.WebJobs.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.WebTools.Azure.Functions.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.WebTools.Azure.WebJobs.Package.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.WebTools.Azure.Functions.pkgdef" />
+  </Assets>
+</PackageManifest>

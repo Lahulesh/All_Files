@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+***********************************************************************************************
+Microsoft.Azure.Functions.Designtime
+
+WARNING:  DO NOT MODIFY this file unless you are knowledgeable about MSBuild and have
+          created a backup copy.  Incorrect changes to this file will make it
+          impossible to load or build your projects from the command-line or the IDE.
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+***********************************************************************************************
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!--
+    Locate the approriate localized xaml resources based on the language ID or name.
+
+    The logic here matches the resource manager sufficiently to handle the fixed set of 
+    possible VS languages and directories on disk.
+
+    We cannot respect the exact probe order of the resource manager as this has to evaluate statically
+    and we have only LangName and LangID and no access to System.Globalization API.
+  -->
+  <PropertyGroup Condition="'$(XamlResourcesDirectory)' == ''">
+    <!-- 1. Probe for exact match against LangName. (e.g. pt-BR) -->
+    <XamlResourcesDirectory>$(MSBuildThisFileDirectory)$(LangName)</XamlResourcesDirectory>
+
+    <!-- 2. Handle special cases of languages which would not match above or below. -->
+    <XamlResourcesDirectory Condition="!Exists('$(XamlResourcesDirectory)') and '$(LangID)' == '2052'">$(MSBuildThisFileDirectory)zh-Hans</XamlResourcesDirectory>
+    <XamlResourcesDirectory Condition="!Exists('$(XamlResourcesDirectory)') and '$(LangID)' == '1028'">$(MSBuildThisFileDirectory)zh-Hant</XamlResourcesDirectory>
+
+    <!-- 3. Probe for parent by taking portion the portion before the hyphen (e.g. fr-FR -> fr) -->
+    <XamlResourcesDirectory Condition="!Exists('$(XamlResourcesDirectory)')">$(MSBuildThisFileDirectory)$(LangName.Split('-')[0])</XamlResourcesDirectory>
+
+    <!-- 4. Fall back to neutral English resources if all of the above fail -->
+    <XamlResourcesDirectory Condition="!Exists('$(XamlResourcesDirectory)')">$(MSBuildThisFileDirectory)</XamlResourcesDirectory>
+
+    <XamlResourcesDirectory Condition="!HasTrailingSlash('$(XamlResourcesDirectory)')">$(XamlResourcesDirectory)\</XamlResourcesDirectory>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!--
+      Web item templates have some files that should not have indexes added to names when files are being created,
+      like packages.json etc. To opt out from that we need to specify this property.
+      -->
+    <AlwaysUseNumericalSuffixInItemNames>false</AlwaysUseNumericalSuffixInItemNames>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectCapability Include="DynamicFileNesting" />
+    <ProjectCapability Include="DynamicFileNestingEnabled" />
+  </ItemGroup>
+
+  <!-- Functions specific property schemas -->
+  <ItemGroup>
+    <PropertyPageSchema Include="$(XamlResourcesDirectory)ProjectDebugPropertyPage.xaml">
+      <Context>Project</Context>
+    </PropertyPageSchema>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VsixLanguagePack Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema-lp/2010">
+  <LocalizedName>Microsoft Azure WebJobs Tools</LocalizedName>
+  <LocalizedDescription>Azure WebJobs를 만들기 위한 도구</LocalizedDescription>
+</VsixLanguagePack>

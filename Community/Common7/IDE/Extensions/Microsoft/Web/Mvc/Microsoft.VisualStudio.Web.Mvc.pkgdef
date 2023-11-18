@@ -1,0 +1,138 @@
+﻿[$RootKey$\Packages\{B54016DB-B3E6-4960-8262-81772C777DE9}]
+@="Microsoft.VisualStudio.Web.Mvc.Package.MvcPackage"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.VisualStudio.Web.Mvc.Package.MvcPackage"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.Web.Mvc.5.0.dll"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{4D0D65B0-69AD-4FA2-A686-558ADE34B7C2}]
+"name"="Microsoft.VisualStudio.Web.Mvc.5.0"
+"publicKeyToken"="31bf3856ad364e35"
+"culture"="neutral"
+"version"="5.2.0.0"
+"codeBase"="$PackageFolder$\Microsoft.VisualStudio.Web.Mvc.5.0.dll"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{A1B40549-31E8-49D4-B814-F3E8E96B43D5}]
+"name"="Microsoft.AspNet.Scaffolding.Mvc.5.0"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="5.2.0.0"
+"codeBase"="$PackageFolder$\Scaffolding\Microsoft.AspNet.Scaffolding.Mvc.5.0.dll"
+
+
+[$RootKey$\CLSID\{FF2F049C-190A-4DC9-A40A-C0E64FF82AB7}]
+@="Microsoft.VisualStudio.Web.Mvc.Project.MvcProject"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.VisualStudio.Web.Mvc.Project.MvcProject"
+"Assembly"="Microsoft.VisualStudio.Web.Mvc.5.0, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+"ThreadingModel"="Both"
+
+[$RootKey$\Projects\{E24C65DC-7377-472b-9ABA-BC803B73C61A}\AddNewItemWizardInfo\WebApiControllerItemTemplateWeb.cs.vstemplate]
+"PrimaryFolder"="App_Code"
+"ItemName"="Web API Controller"
+"Extension"=".cs"
+
+[$RootKey$\Projects\{E24C65DC-7377-472b-9ABA-BC803B73C61A}\AddNewItemWizardInfo\WebApiControllerItemTemplateWeb.vb.vstemplate]
+"PrimaryFolder"="App_Code"
+"ItemName"="Web API Controller"
+"Extension"=".vb"
+
+[$RootKey$\Projects\{E24C65DC-7377-472b-9ABA-BC803B73C61A}\AddNewItemWizardInfo\SignalRHubItemTemplateWeb.cs.vstemplate]
+"PrimaryFolder"="App_Code" 
+"ItemName"="SignalR Hub" 
+"Extension"=".cs" 
+
+[$RootKey$\Projects\{E24C65DC-7377-472b-9ABA-BC803B73C61A}\AddNewItemWizardInfo\SignalRPersistentConnectionItemTemplateWeb.cs.vstemplate]
+"PrimaryFolder"="App_Code" 
+"ItemName"="SignalR Persistent Connection" 
+"Extension"=".cs" 
+
+[$RootKey$\Projects\{E24C65DC-7377-472b-9ABA-BC803B73C61A}\AddNewItemWizardInfo\SignalRHubItemTemplateWeb.vb.vstemplate]
+"PrimaryFolder"="App_Code" 
+"ItemName"="SignalR Hub" 
+"Extension"=".vb" 
+
+[$RootKey$\Projects\{E24C65DC-7377-472b-9ABA-BC803B73C61A}\AddNewItemWizardInfo\SignalRPersistentConnectionItemTemplateWeb.vb.vstemplate]
+"PrimaryFolder"="App_Code" 
+"ItemName"="SignalR Persistent Connection" 
+"Extension"=".vb" 
+
+[$RootKey$\Projects\{E24C65DC-7377-472b-9ABA-BC803B73C61A}\AddNewItemWizardInfo\OwinStartupItemTemplateWeb.cs.vstemplate]
+"PrimaryFolder"="App_Code" 
+"ItemName"="OWIN Startup" 
+"Extension"=".cs" 
+
+[$RootKey$\Projects\{E24C65DC-7377-472b-9ABA-BC803B73C61A}\AddNewItemFilters\App_Data]
+"WebApiControllerItemTemplateWeb.cs.vstemplate"=dword:00000000
+"WebApiControllerItemTemplateWeb.vb.vstemplate"=dword:00000000
+"SignalRHubItemTemplateWeb.cs.vstemplate"=dword:00000000
+"SignalRPersistentConnectionItemTemplateWeb.cs.vstemplate"=dword:00000000
+"SignalRHubItemTemplateWeb.vb.vstemplate"=dword:00000000
+"SignalRPersistentConnectionItemTemplateWeb.vb.vstemplate"=dword:00000000
+"OwinStartupItemTemplateWeb.cs.vstemplate"=dword:00000000
+ 
+[$RootKey$\Projects\{E24C65DC-7377-472b-9ABA-BC803B73C61A}\AddNewItemWizardInfo\Razor3HelperItemTemplate.cshtml.vstemplate]
+"PrimaryFolder"="App_Code"
+"ItemName"="Helper (Razor v3)"
+"Extension"=".cshtml"
+
+[$RootKey$\Projects\{E24C65DC-7377-472b-9ABA-BC803B73C61A}\AddNewItemWizardInfo\Razor3HelperItemTemplate.vbhtml.vstemplate]
+"PrimaryFolder"="App_Code"
+"ItemName"="Helper (Razor v3)"
+"Extension"=".vbhtml"
+
+[$RootKey$\Projects\{E24C65DC-7377-472b-9ABA-BC803B73C61A}\AddNewItemFilters\App_Code]
+"Razor3WebPageItemTemplate.vbhtml.vstemplate"=dword:00000000
+"Razor3WebPageItemTemplate.cshtml.vstemplate"=dword:00000000
+"Razor3LayoutPageItemTemplate.vbhtml.vstemplate"=dword:00000000
+"Razor3LayoutPageItemTemplate.cshtml.vstemplate"=dword:00000000
+"Razor3EmptyPageItemTemplate.vbhtml.vstemplate"=dword:00000000
+"Razor3EmptyPageItemTemplate.cshtml.vstemplate"=dword:00000000
+"Razor3ContentPageItemTemplate.vbhtml.vstemplate"=dword:00000000
+"Razor3ContentPageItemTemplate.cshtml.vstemplate"=dword:00000000
+
+[$RootKey$\Projects\{E24C65DC-7377-472b-9ABA-BC803B73C61A}\AddNewItemFilters\App_Data]
+"Razor3WebPageItemTemplate.vbhtml.vstemplate"=dword:00000000
+"Razor3WebPageItemTemplate.cshtml.vstemplate"=dword:00000000
+"Razor3LayoutPageItemTemplate.vbhtml.vstemplate"=dword:00000000
+"Razor3LayoutPageItemTemplate.cshtml.vstemplate"=dword:00000000
+"Razor3HelperItemTemplate.vbhtml.vstemplate"=dword:00000000
+"Razor3HelperItemTemplate.cshtml.vstemplate"=dword:00000000
+"Razor3EmptyPageItemTemplate.vbhtml.vstemplate"=dword:00000000
+"Razor3EmptyPageItemTemplate.cshtml.vstemplate"=dword:00000000
+"Razor3ContentPageItemTemplate.vbhtml.vstemplate"=dword:00000000
+"Razor3ContentPageItemTemplate.cshtml.vstemplate"=dword:00000000
+
+[$RootKey$\WebToolsWebPages\3.0.0.0\VisualStudio]
+"Version"="3.0.352.0"
+
+// -----------------------------
+// MVC 3.0.1 project system 
+// -----------------------------
+[$RootKey$\CLSID\{0AA5A5DD-CCA5-4B0A-B404-6C9824614B17}]
+@="Microsoft.VisualStudio.Web.Mvc.Project.Compatibility.Mvc301Project"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.VisualStudio.Web.Mvc.Project.Compatibility.Mvc301Project"
+"Assembly"="Microsoft.VisualStudio.Web.Mvc.5.0, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+"ThreadingModel"="Both"
+
+[$RootKey$\Projects\{E53F8FEA-EAE0-44A6-8774-FFD645390401}]
+@="Web MVC 301 Project Factory (Compatibility)"
+"Package"="{B54016DB-B3E6-4960-8262-81772C777DE9}"
+
+[$RootKey$\Projects\{E53F8FEA-EAE0-44A6-8774-FFD645390401}\LanguageTemplates]
+"{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"="{E53F8FEB-EAE0-44A6-8774-FFD645390401}"
+"{F184B08F-C81C-45F6-A57F-5ABD9991F28F}"="{E53F8FEC-EAE0-44A6-8774-FFD645390401}"
+
+[$RootKey$\Projects\{E53F8FEB-EAE0-44A6-8774-FFD645390401}]
+@="C# Web MVC Project Templates"
+"Package"="{B54016DB-B3E6-4960-8262-81772C777DE9}"
+"TemplateGroupIDs(VsTemplate)"="Web,MVC301"
+"Language(VsTemplate)"="CSharp"
+"CodeFileExtension"=".cs"
+                
+[$RootKey$\Projects\{E53F8FEC-EAE0-44A6-8774-FFD645390401}]
+@="VB Web MVC Project Templates"
+"Package"="{B54016DB-B3E6-4960-8262-81772C777DE9}"
+"TemplateGroupIDs(VsTemplate)"="Web,MVC301"
+"Language(VsTemplate)"="VisualBasic"
+"CodeFileExtension"=".vb"

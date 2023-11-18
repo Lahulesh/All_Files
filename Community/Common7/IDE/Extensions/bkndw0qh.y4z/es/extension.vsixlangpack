@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageLanguagePackManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <DisplayName>Visual Studio Tools para contenedores: Build Tools</DisplayName>
+    <Description xml:space="preserve">Compile las aplicaciones en el entorno del contenedor de destino.</Description>
+    <MoreInfo>https://go.microsoft.com/fwlink/?LinkID=733441</MoreInfo>
+  </Metadata>
+</PackageLanguagePackManifest>

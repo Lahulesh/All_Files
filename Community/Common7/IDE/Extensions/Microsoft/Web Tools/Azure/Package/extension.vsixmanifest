@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="8B566E37-A2E1-4020-9D1A-1FEFFCFA9253" Version="17.8.352.38654" Language="en-US" Publisher="Microsoft" />
+    <Icon>WebConfiguration.png</Icon>
+    <PreviewImage>WebConfigurationPreview.png</PreviewImage>
+    <DisplayName>Microsoft Azure App Service Tools</DisplayName>
+    <Description xml:space="preserve">Provides the latest Web Developer Tools for Microsoft Azure App Service</Description>
+    <Tags>Visual Studio Web Developer Tools for Microsoft Azure App Service</Tags>
+    <AllowClientRole>true</AllowClientRole>
+  </Metadata>
+  <Installation InstalledByMsi="true" AllUsers="true" SystemComponent="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.IntegratedShell" Version="15.0" />
+  </Installation>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="..\Microsoft.VisualStudio.Web.Azure.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="..\Microsoft.WebTools.Azure.Publish.dll" />
+  </Assets>
+</PackageManifest>

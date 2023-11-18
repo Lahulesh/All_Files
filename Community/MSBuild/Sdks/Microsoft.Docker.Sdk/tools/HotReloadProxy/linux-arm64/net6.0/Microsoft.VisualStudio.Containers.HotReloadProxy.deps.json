@@ -1,0 +1,35 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0/linux-arm64",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {},
+    ".NETCoreApp,Version=v6.0/linux-arm64": {
+      "Microsoft.VisualStudio.Containers.HotReloadProxy/1.0.0": {
+        "dependencies": {
+          "Microsoft.VisualStudioEng.MicroBuild.Core": "1.0.0"
+        },
+        "runtime": {
+          "Microsoft.VisualStudio.Containers.HotReloadProxy.dll": {}
+        }
+      },
+      "Microsoft.VisualStudioEng.MicroBuild.Core/1.0.0": {}
+    }
+  },
+  "libraries": {
+    "Microsoft.VisualStudio.Containers.HotReloadProxy/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.VisualStudioEng.MicroBuild.Core/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CqFQS0NJe9NhkGGv3z5/PtB8iExlDCiIGrx7DbtrmEOdNDJRilzLug3bU2q3tMYL2XVFB9eeOyA3BDZ0/vfx2A==",
+      "path": "microsoft.visualstudioeng.microbuild.core/1.0.0",
+      "hashPath": "microsoft.visualstudioeng.microbuild.core.1.0.0.nupkg.sha512"
+    }
+  }
+}

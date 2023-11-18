@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="General" DisplayName="全般" PageTemplate="generic" Description="全般" xmlns="http://schemas.microsoft.com/build/2009/properties">
+
+  <Rule.Categories>
+    <Category Name="General" DisplayName="全般" Description="全般"/>
+  </Rule.Categories>
+
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" HasConfigurationCondition="False"/>
+  </Rule.DataSource>
+
+  <DynamicEnumProperty Name="DockerLaunchAction" DisplayName="起動アクション" Visible="True" EnumProvider="DockerLaunchActionEnumValuesProvider"/>
+  <DynamicEnumProperty Name="DockerServiceName" DisplayName="サービス名" Visible="True" EnumProvider="DockerServiceNameEnumValuesProvider"/>
+
+  <!-- Deprecated, saved for backward compatibility, not visible to user -->
+  <BoolProperty Name="DockerLaunchBrowser" DisplayName="ブラウザーの起動" Visible="False"/>
+  <StringProperty Name="DockerServiceUrl" DisplayName="サービス URL" Visible="True"/>
+  <StringProperty Name="DockerTargetOS" DisplayName="ターゲット OS" Visible="True"/>
+  <StringProperty Name="ProjectVersion" Visible="False"/>
+</Rule>

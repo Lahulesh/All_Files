@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="General" DisplayName="일반" PageTemplate="generic" Description="일반" xmlns="http://schemas.microsoft.com/build/2009/properties">
+
+  <Rule.Categories>
+    <Category Name="General" DisplayName="일반" Description="일반"/>
+  </Rule.Categories>
+
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" HasConfigurationCondition="False"/>
+  </Rule.DataSource>
+
+  <DynamicEnumProperty Name="DockerLaunchAction" DisplayName="시작 작업" Visible="True" EnumProvider="DockerLaunchActionEnumValuesProvider"/>
+  <DynamicEnumProperty Name="DockerServiceName" DisplayName="서비스 이름" Visible="True" EnumProvider="DockerServiceNameEnumValuesProvider"/>
+
+  <!-- Deprecated, saved for backward compatibility, not visible to user -->
+  <BoolProperty Name="DockerLaunchBrowser" DisplayName="브라우저 실행" Visible="False"/>
+  <StringProperty Name="DockerServiceUrl" DisplayName="서비스 URL" Visible="True"/>
+  <StringProperty Name="DockerTargetOS" DisplayName="대상 OS" Visible="True"/>
+  <StringProperty Name="ProjectVersion" Visible="False"/>
+</Rule>

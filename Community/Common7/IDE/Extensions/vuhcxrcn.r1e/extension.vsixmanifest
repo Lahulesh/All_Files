@@ -1,0 +1,56 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="82e81c51-04b7-4681-91bb-87b6cf7c516b" Version="17.7.20230911.7" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>.NET Core Debugging with WSL</DisplayName>
+    <Description xml:space="preserve">Run and debug your .NET Core console and web applications in WSL.</Description>
+    <MoreInfo>https://aka.ms/AA9ja8y</MoreInfo>
+    <License>EULA.rtf</License>
+    <Icon>wsl.ico</Icon>
+    <PackageId>Microsoft.VisualStudio.WslDebugging</PackageId>
+  </Metadata>
+  <Installation AllUsers="true" SystemComponent="true">
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Community">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Community">
+      <ProductArchitecture>x86</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Community">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Professional">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Professional">
+      <ProductArchitecture>x86</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Professional">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Enterprise">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Enterprise">
+      <ProductArchitecture>x86</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Enterprise">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.7.2,)" />
+  </Dependencies>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.VisualStudio.WslDebugging.Package.dll" AssemblyName="Microsoft.VisualStudio.WslDebugging.Package, Version=17.7.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.WslDebugging.Package.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.WslDebugging.Package.dll" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.VisualStudio.WslDebugging.Core.dll" AssemblyName="Microsoft.VisualStudio.WslDebugging.Core, Version=17.7.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.WslDebugging.Core.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.WslDebugging.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.VisualStudio.WslDebugging.Settings.dll" AssemblyName="Microsoft.VisualStudio.WslDebugging.Settings, Version=17.7.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.WslDebugging.Settings.pkgdef" />
+  </Assets>
+</PackageManifest>

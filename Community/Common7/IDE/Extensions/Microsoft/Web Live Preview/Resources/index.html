@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Edge DevTools for Visual Studio</title>
+    <style>
+        @media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
+            :root {
+            --bg: #fff;
+            --col: #111;
+            --heading: #2ec2e0;
+            --subheading: #0d86d9;
+            --links: #0d86d9;
+            }
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+            --bg: #111;
+            --col: #fff;
+            --heading: #c8f7d1;
+            --subheading: #33c1ea;
+            --links: #33c1ea;
+            }
+        }
+        body {
+            background: var(--bg);
+            color: var(--col);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 34em;
+            margin: 0 auto;
+            font-size: calc(.7em + 1vw);
+        }
+        h1 {
+            min-height: 2.3em;
+            background: url('../icon.png');
+            background-size: 2.3em;
+            background-repeat: no-repeat;
+            background-position: left center;
+            padding-left: 3em;
+            font-weight: normal;
+            max-width: 15em;
+            color: var(--heading);
+            font-size: 1.9em;
+        }
+        h2 {
+            color: var(--subheading);
+            font-weight: normal;
+            margin-bottom: .5em;
+        }
+        p {
+            margin: 0 0 .5em 0;
+            padding:0;
+        }
+        a {
+            color: var(--links);
+        }
+        #headless:empty {
+            display: none;
+        }
+        #headless {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Microsoft Edge DevTools for Visual Studio</h1>
+    </header>
+    <section>
+        <h2>Welcome to the Edge DevTools hosted inside Visual Studio!</h2>
+        <p>You can now use the <a href="https://docs.microsoft.com/microsoft-edge/devtools-guide-chromium">Edge Developer Tools</a> inside your editor to inspect, change and debug your Web Live Preview using the Elements and Network tool.</p>
+        <p>Simply open a Web Live Preview instance for your file and connect using the attach button in the toolbar above.</p>
+        <p>If there is a Web Live Preview instance active and the attach button does not attach the DevTools, please check your internet connection.</p>
+        <p>If you have any questions or concerns, please check out our <a href="https://github.com/microsoft/vscode-edge-devtools/issues">Edge DevTools for VS Code GitHub repository</a>, read up on how to use the extension or report us your problems and ideas. We're happy to listen!
+        <p>Although the GitHub repo focuses on our VS Code extension, most of the information there can apply to the Visual Studio extension as well.
+    </section>
+    <script>
+        console.info('Hello from the startpage!')
+    </script>
+</body>
+</html>

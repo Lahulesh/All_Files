@@ -1,0 +1,42 @@
+﻿[$RootKey$\InstalledProducts\WebJobsPackage]
+@="#1"
+"Package"="{CAD4B03E-31C3-4DDD-B226-D48C1756178E}"
+"PID"="17.8.352.38654"
+"ProductDetails"="#1"
+[$RootKey$\Packages\{CAD4B03E-31C3-4DDD-B226-D48C1756178E}]
+@="Microsoft.WebTools.Azure.WebJobs.Package.WebJobsPackage, Microsoft.WebTools.Azure.WebJobs.Package"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.WebTools.Azure.WebJobs.Package.WebJobsPackage"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Azure.WebJobs.Package.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+[$RootKey$\UIContextRules\{D018ABA7-8308-4A69-BF59-337CB7E0537D}]
+@="CSharp Project or Console App or Web Project Open"
+"Expression"="(CapabilityMatch & ExeOutput)"
+"CapabilityMatch"="ActiveProjectCapability:!CPS&!XamarinXaml"
+"ExeOutput"="ActiveProjectOutputType:1"
+
+[$RootKey$\UIContextRules\{B7A929AA-7045-4E99-A9DD-AA03107AE7AF}]
+@="CSharp Project or Console App or Web Project Open"
+"Expression"="(CSWebFlavoredProject | VBWebFlavoredProject | Website | CapabilityMatch)"
+"CSWebFlavoredProject"="ActiveProjectFlavor:{349C5853-65DF-11DA-9384-00065B846F21}"
+"VBWebFlavoredProject"="ActiveProjectFlavor:{349c5854-65df-11da-9384-00065b846f21}"
+"Website"="ActiveProjectFlavor:{E24C65DC-7377-472b-9ABA-BC803B73C61A}"
+"CapabilityMatch"="ActiveProjectCapability:Web|DotNetCoreWeb|DotNetCore"
+
+[$RootKey$\Menus]
+"{CAD4B03E-31C3-4DDD-B226-D48C1756178E}"=", Menus.ctmenu, 1"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{EFAF4E1E-DB7B-4EBB-9ABD-36853F5898EC}]
+"name"="Microsoft.WebTools.Azure.WebJobs"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="17.0.0.0"
+"codeBase"="$PackageFolder$\Microsoft.WebTools.Azure.WebJobs.dll"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{40600E3C-3D7E-4C04-AA33-BF7E909C1C8C}]
+"name"="Microsoft.WebTools.Azure.WebJobs.Package"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="17.0.0.0"
+"codeBase"="$PackageFolder$\Microsoft.WebTools.Azure.WebJobs.Package.dll"

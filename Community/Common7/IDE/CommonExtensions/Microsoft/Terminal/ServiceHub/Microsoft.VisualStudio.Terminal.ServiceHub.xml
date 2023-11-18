@@ -1,0 +1,641 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.VisualStudio.Terminal.ServiceHub</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.VisualStudio.Terminal.PtyExitedEventArgs">
+            <summary>
+            Event arguments for an <see cref="E:Microsoft.VisualStudio.Terminal.IServer.PtyExited" /> event.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.PtyExitedEventArgs.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.PtyExitedEventArgs" /> class.
+            </summary>
+            <param name="exitCode">The exit code of the pty instance.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.PtyExitedEventArgs.ExitCode">
+            <summary>
+            Gets or sets the PTY exit code.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalClosedEventArgs">
+            <summary>
+            Close event arguments used to notify that a terminal was closed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalClosedEventArgs.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.TerminalClosedEventArgs" /> class.
+            </summary>
+            <param name="terminalGuid">Terminal guid that closed.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalClosedEventArgs.TerminalGuid">
+            <summary>
+            Gets the Guid of the terminal that raised this event.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalDataReceivedEventArgs">
+            <summary>
+            Event Args used to send data through the Terminal UserInputReceived API.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalDataReceivedEventArgs.#ctor(System.Buffers.ReadOnlySequence{System.Char})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.TerminalDataReceivedEventArgs" /> class.
+            </summary>
+            <param name="data">Data received.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalDataReceivedEventArgs.Data">
+            <summary>
+            Gets the data that was recieved.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalResizeEventArgs">
+            <summary>
+            Resize event arguments used to specify the size of the terminal renderer.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.TerminalResizeEventArgs.#ctor(System.Guid,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.TerminalResizeEventArgs" /> class.
+            </summary>
+            <param name="terminalGuid">Terminal Guid used to identify which terminal raised this event.</param>
+            <param name="rows">Number of rows that the terminal can display.</param>
+            <param name="columns">Number of columns that the terminal can display.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResizeEventArgs.TerminalGuid">
+            <summary>
+            Gets the Guid of the terminal that raised this event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResizeEventArgs.MaxRows">
+            <summary>
+            Gets the number of rows to display.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.TerminalResizeEventArgs.MaxColumns">
+            <summary>
+            Gets the number of columns to display.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.IPty">
+            <summary>
+            Interface implemented by pty back end component.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.IPty.PtyExited">
+            <summary>
+            Event raised when the PTY process exits
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.IPty.ClosePtyAsync">
+            <summary>
+            Closes the PTY instance and raises the PTY closed event.
+            </summary>
+            <returns>Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.IPty.ClosePtyAsync(System.Threading.CancellationToken)">
+            <summary>
+            Close Pty.
+            </summary>
+            <param name="cancellationToken">Cancellation token for the RPC call into the PTY server.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.IPty.InitPtyAsync(System.IO.Stream,System.Int32,System.Int32,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Initializes a shell instance that communicates via a stream.
+            </summary>
+            <param name="remotePipe">Stream that handles incoming and outgoing data.</param>
+            <param name="columns">Number of columns to render.</param>
+            <param name="rows">Number of rows to render.</param>
+            <param name="cwd">Starting directory.</param>
+            <param name="environment">Optional environment variables to apply to the shell process.</param>
+            <returns>Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.IPty.ResizePtyAsync(System.Int32,System.Int32)">
+            <summary>
+            Resize pty.
+            </summary>
+            <param name="cols">Columns.</param>
+            <param name="rows">Rows.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.IPty.SetClipboardContentAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sets the clipboard content in the machine where the PTY service runs.
+            </summary>
+            <param name="content">String content to set.</param>
+            <param name="cancellationToken">Cancellation token for this asynchronous task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.IServer">
+            <summary>
+            Interface that represents the PTY ServiceHub Service and it's endpoints.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.IServer.PtyExited">
+            <summary>
+            Event raised when the PTY process exits
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.IServer.InitPtyAsync(System.IO.Stream,Microsoft.VisualStudio.Terminal.ProfileConfig,System.Int32,System.Int32,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Initializes a shell instance that communicates via a stream.
+            </summary>
+            <param name="remotePipe">Stream that handles incoming and outgoing data.</param>
+            <param name="profile">Terminal target profile.</param>
+            <param name="columns">Number of columns to render.</param>
+            <param name="rows">Number of rows to render.</param>
+            <param name="cwd">Starting directory.</param>
+            <param name="environment">Environment variables to apply to the shell process.</param>
+            <returns>Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.IServer.ResizePtyAsync(System.Int32,System.Int32)">
+            <summary>
+            Resizes the underlying shell process.
+            </summary>
+            <param name="cols">Number of columns to render.</param>
+            <param name="rows">Number of rows to render.</param>
+            <returns>Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.IServer.ClosePtyAsync">
+            <summary>
+            Closes the PTY instance and raises the PTY closed event.
+            </summary>
+            <returns>Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.IServer.ClosePtyAsync(System.Threading.CancellationToken)">
+            <summary>
+            Closes the PTY instance and raises the PTY closed event.
+            </summary>
+            <param name="cancellationToken">Cancellation token for the RPC call into the PTY server.</param>
+            <returns>Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.IServer.SetClipboardContentAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sets the clipboard content in the machine where the PTY service runs.
+            </summary>
+            <param name="content">String content to set.</param>
+            <param name="cancellationToken">Cancellation token for this asynchronous task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.ITerminalProfile">
+            <summary>
+            Interface that represents a target to open a terminal session against.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ITerminalProfile.DisplayName">
+            <summary>
+            Gets name displayed by dropdown.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ITerminalProfile.Id">
+            <summary>
+            Gets Id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ITerminalProfile.IsDefault">
+            <summary>
+            Gets or sets a value indicating whether this profile is the default, set in Tools Options Terminal.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ITerminalProfile.CreatePTY">
+            <summary>
+            Gets a value indicating whether a PTY backend should be created.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ITerminalProfile.Location">
+            <summary>
+            Gets or sets executable location.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ITerminalProfile.Arguments">
+            <summary>
+            Gets or sets shell arguments.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalProfile.GetPty(Microsoft.VisualStudio.Terminal.IServer)">
+            <summary>
+            Gets IPty implementation appropriate for the profile.
+            </summary>
+            <param name="server">ServiceHub server. May be null for non-servicehub pty.</param>
+            <returns>IPty.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.TerminalCommandIDs">
+            <summary>
+            Command IDs for all terminal commands present in the default terminal.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalCommandIDs.TerminalMenuControllerId">
+            <summary>
+            New terminal menu controller group which includes the dropdown menu.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalCommandIDs.PasteCommandId">
+            <summary>
+            Paste button command ID.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalCommandIDs.CopyCommandId">
+            <summary>
+            Copy button command ID.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalCommandIDs.TerminalSettingsCommandId">
+            <summary>
+            Settings button command ID.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Terminal.TerminalCommandIDs.TerminalClearConsoleCommandId">
+            <summary>
+            Clear console button command ID.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.ITerminalService">
+            <summary>
+            Terminal service class used to create, manage, and close terminal instances.
+            </summary>
+            <remarks>When this service is disposed, we dispose of all terminal windows spawned by this service.</remarks>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.ITerminalService.TerminalResized">
+            <summary>
+            Raised when the terminal is resized.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.ITerminalService.TerminalClosed">
+            <summary>
+            Raised even when the terminal is closed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.CreateTerminalAsync(System.Threading.CancellationToken,System.String,Microsoft.VisualStudio.Terminal.ITerminalProfile)">
+            <summary>
+            Create a new terminal in the host machine (local or remote), this includes the PTY and renderer components.
+            This task returns when the terminal has initialized.
+            </summary>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <param name="name">Name of the terminal tool window. Default used if none provided.</param>
+            <param name="profile">Profile used to instantiate the terminal. If none provided, we use the default profile.</param>
+            <returns>A unique <see cref="T:System.Guid" /> used to identify this terminal.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.CreateTerminalAsync(System.Threading.CancellationToken,System.String,Microsoft.VisualStudio.Terminal.ProfileConfig)">
+            <summary>
+            Create a new terminal in the host machine (local or remote), this includes the PTY and renderer components.
+            This task returns when the terminal has initialized.
+            </summary>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <param name="name">Name of the terminal tool window. Default used if none provided.</param>
+            <param name="profile">Profile used to instantiate the terminal. If none provided, we use the default profile.</param>
+            <returns>A unique <see cref="T:System.Guid" /> used to identify this terminal.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.CreateTerminalAsync(System.Threading.CancellationToken,System.String,Microsoft.VisualStudio.Terminal.ITerminalProfile,System.String)">
+            <summary>
+            Create a new terminal in the host machine (local or remote) in the given working directory,
+            this includes the PTY and renderer components. This task returns when the terminal has initialized.
+            </summary>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <param name="name">Name of the terminal tool window. Default used if none provided.</param>
+            <param name="profile">Profile used to instantiate the terminal. If none provided, we use the default profile.</param>
+            <param name="workingDirectory">Working directory of the shell process.</param>
+            <returns>A unique <see cref="T:System.Guid" /> used to identify this terminal.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.CreateTerminalAsync(System.Threading.CancellationToken,System.String,Microsoft.VisualStudio.Terminal.ProfileConfig,System.String)">
+            <summary>
+            Create a new terminal in the host machine (local or remote) in the given working directory,
+            this includes the PTY and renderer components. This task returns when the terminal has initialized.
+            </summary>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <param name="name">Name of the terminal tool window. Default used if none provided.</param>
+            <param name="profile">Profile used to instantiate the terminal. If none provided, we use the default profile.</param>
+            <param name="workingDirectory">Working directory of the shell process.</param>
+            <returns>A unique <see cref="T:System.Guid" /> used to identify this terminal.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.CreateTerminalRendererAsync(System.String,System.Threading.CancellationToken,System.Boolean,System.Boolean)">
+            <summary>
+            Create a new terminal renderer tool window with no input stream attached to it.
+            Use <see cref="M:Microsoft.VisualStudio.Terminal.ITerminalService.AttachTerminalStreamAsync(System.Guid,System.IO.Stream,System.Threading.CancellationToken)" /> to attach a stream to this renderer.
+            </summary>
+            <param name="name">Name of the terminal tool window. Default used if none provided.</param>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <param name="allowUserInput">Enable or disable user input from this terminal tool window.</param>
+            <param name="autoResize">Flag that tells the renderer to automatically resize the text buffer to fit the tool window.</param>
+            <returns>A unique <see cref="T:System.Guid" /> used to identify this terminal.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.CreateTerminalRendererAsync(System.IO.Stream,System.Threading.CancellationToken,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Create a new terminal tool window with a renderer and without a PTY backend.
+            </summary>
+            <param name="ptyStream">Stream that provides PTY output when read and user input is written to.</param>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <param name="name">Name of the terminal tool window. Default used if none provided.</param>
+            <param name="allowUserInput">Enable or disable user input from this terminal tool window.</param>
+            <param name="autoResize">Flag that tells the renderer to automatically resize the text buffer to fit the tool window.</param>
+            <returns>A unique <see cref="T:System.Guid" /> used to identify this terminal.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.CreateTerminalRendererWithCommandsAsync(System.IO.Stream,System.Threading.CancellationToken,Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget,System.Collections.Generic.List{System.ValueTuple{System.Guid,System.UInt32}},System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Create a new terminal tool window with a renderer without a PTY backend and a custom command handler.
+            </summary>
+            <param name="ptyStream">Stream that provides PTY output when read and user input is written to.</param>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <param name="customCommandHandler">Command handler to be invoked for this window's commands. Important
+            note: when Exec is invoked for this IOleCommandTarget, the IntPtr pvaIn argument will contain the Guid
+            of the terminal window that got the command.</param>
+            <param name="commandList">List of commands that the handler will know about. Each entry in the list is
+            a tuple in the format (Guid, uint) where the Guid is the command set Guid and the uint is the command
+            ID.</param>
+            <param name="name">Name of the terminal tool window. Default used if none provided.</param>
+            <param name="allowUserInput">Enable or disable user input from this terminal tool window.</param>
+            <param name="autoResize">Flag that tells the renderer to automatically resize the text buffer to fit the tool window.</param>
+            <returns>A unique <see cref="T:System.Guid" /> used to identify this terminal.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.GetTerminalGuidsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets all the shareable terminals registered with the terminal manager.
+            </summary>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <returns>Enumerable with the Guids of the shareable terminals.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.AttachTerminalStreamAsync(System.Guid,System.IO.Stream,System.Threading.CancellationToken)">
+             <summary>
+             Attaches the provided stream to the terminal that matches the GUID provided. The terminal attached to will
+             treat the stream as user input and output PTY content.
+            
+             Note that this is not required for terminal renderers since the stream gets attached during intialization.
+             </summary>
+             <param name="terminalGuid">Terminal guid used to identify what terminal to request the stream from.</param>
+             <param name="stream">Stream to which this terminal will write PTY output to and read user input from.</param>
+             <param name="cancellationToken">Cancellation token for the task.</param>
+             <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.ResizeAsync(System.Guid,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Resizes the terminal to the provided columns and rows.
+            </summary>
+            <param name="terminalGuid">Terminal guid used to identify what terminal to resize.</param>
+            <param name="rows">Number of rows to render.</param>
+            <param name="columns">Number of columns to render.</param>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.GetSizeAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the terminal render size.
+            </summary>
+            <param name="terminalGuid">Terminal guid used to identify what terminal to request the size from.</param>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <returns><see cref="T:System.Tuple" /> with columns and rows.</returns>
+            <remarks>The returned size will always match the maximum render size for the tool window.</remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.CloseAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Closes the terminal tool window and releases its resources.
+            </summary>
+            <param name="terminalGuid">Terminal guid used to identify what terminal to close.</param>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.CloseAllInstancesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Closes all terminal instances created by this service instance.
+            </summary>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.ShowAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Shows the specified terminal tool window and brings focus to it.
+            </summary>
+            <param name="terminalGuid">Terminal guid used to identify what terminal to show.</param>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.GetProfilesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets a collection of the user’s terminal profiles.
+            </summary>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <returns>An IEnumerable with <see cref="T:Microsoft.VisualStudio.Terminal.ITerminalProfile" /> wrapped in a task.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.GetDefaultProfileAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets the user's default profile.
+            </summary>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <returns>An <see cref="T:Microsoft.VisualStudio.Terminal.ITerminalProfile" /> that represents the default profile.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.EnableDebugModeSwitchPersistanceAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Updates the specified terminal so that it will not be automatically hidden when switching between debug and design mode.
+            This also shows the terminal if it is currently hidden to guard against the case that the shell hid the window between
+            creation and when EnableDebugModeSwitchPersistanceAsync completes.
+            </summary>
+            <param name="terminalGuid">Terminal guid used to identify what terminal to update.</param>
+            <param name="cancellationToken">Cancellation token for the task.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.AddCachedProfile(Microsoft.VisualStudio.Terminal.ITerminalProfile)">
+            <summary>
+            Add profile to in memory list of profiles.
+            This list will be lost after a restart.
+            </summary>
+            <param name="profile">Profile to add.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.AddCachedProfiles(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Terminal.ITerminalProfile})">
+            <summary>
+            Add profile to in memory list of profiles.
+            This list will be lost after a restart.
+            </summary>
+            <param name="profiles">IEnumerable of profiles to add.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.RemoveCachedProfile(Microsoft.VisualStudio.Terminal.ITerminalProfile)">
+            <summary>
+            Remove profile from in memory list of profiles.
+            This list will be lost after a restart.
+            </summary>
+            <param name="profile">Profile to add.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ITerminalService.RemoveCachedProfiles(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Terminal.ITerminalProfile})">
+            <summary>
+            Remove profile from in memory list of profiles.
+            This list will be lost after a restart.
+            </summary>
+            <param name="profiles">Profiles to add.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.ProfileConfig">
+            <summary>
+            Class that instantiates a terminal profile's configuration.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ProfileConfig.#ctor(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.ProfileConfig" /> class and used to instanciate a new terminal window.
+            </summary>
+            <param name="displayName">Display name for the profile.</param>
+            <param name="location">Path to the executable.</param>
+            <param name="arguments">Arguments to pass along to the executable.</param>
+            <param name="isDefault">Flag to mark this item as the default profile.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ProfileConfig.Id">
+            <summary>
+            Gets or sets the unique ID for the profile configuration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ProfileConfig.DisplayName">
+            <summary>
+            Gets or sets the display name for the profile configuration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ProfileConfig.Location">
+            <summary>
+            Gets or sets the shell location name for the profile configuration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ProfileConfig.Arguments">
+            <summary>
+            Gets or sets the arguments name for the profile configuration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ProfileConfig.IsDefault">
+            <summary>
+            Gets or sets a value indicating whether this profile is the default.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ProfileConfig.CreatePTY">
+            <summary>
+            Gets a value indicating whether to create a PTY backend for the target.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ProfileConfig.ComputeProfileSha(System.String,System.String,System.String)">
+            <summary>
+            Computes the profile hashcode by converting the path and arguments into a SHA256 string.
+            </summary>
+            <param name="path">Shell path.</param>
+            <param name="arg">Shell arguments.</param>
+            <param name="name">Name of the profile.</param>
+            <returns>SHA256 encoded string.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ProfileConfig.GetPty(Microsoft.VisualStudio.Terminal.IServer)">
+            <summary>
+            Get PtyProxy.
+            </summary>
+            <param name="server">ServiceHub proxy.</param>
+            <returns>ServiceHub pty proxy.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.ServiceHubPtyProxy">
+            <summary>
+            Wrapping class for ServiceHub IServer.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ServiceHubPtyProxy.#ctor(Microsoft.VisualStudio.Terminal.ProfileConfig,Microsoft.VisualStudio.Terminal.IServer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.ServiceHubPtyProxy" /> class.
+            Instantiates a wrapping object for the servicehub pty proxy.
+            </summary>
+            <param name="profile">Target profile.</param>
+            <param name="server">ServiceHub server.</param>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.ServiceHubPtyProxy.PtyExited">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ServiceHubPtyProxy.ClosePtyAsync(System.Threading.CancellationToken)">
+            <summary>
+            Closes Pty session.
+            </summary>
+            <param name="cancellationToken">Cancellation token used to cancel this async task.</param>
+            <returns>Task.</returns>
+            <remarks>Always call into this method with .WithCancellation(token) which prevents the RPC call from blocking the caller.</remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ServiceHubPtyProxy.ClosePtyAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ServiceHubPtyProxy.InitPtyAsync(System.IO.Stream,System.Int32,System.Int32,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Initializes Pty Session.
+            </summary>
+            <param name="remotePipe">PtyHalf of duplex stream connected to terminal window.</param>
+            <param name="columns">Number of columns.</param>
+            <param name="rows">Number of rows.</param>
+            <param name="cwd">Current working directory.</param>
+            <param name="environment">Optional environment variables to apply to the shell process.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ServiceHubPtyProxy.ResizePtyAsync(System.Int32,System.Int32)">
+            <summary>
+            Resizes Pty Window.
+            </summary>
+            <param name="cols">Columns.</param>
+            <param name="rows">Rows.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ServiceHubPtyProxy.SetClipboardContentAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sets Clipboard Content.
+            </summary>
+            <param name="content">Content to set.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.ServiceHub.PtyService">
+            <summary>
+            Class that implements the <see cref="T:Microsoft.VisualStudio.Terminal.IServer" /> interface. Each instance of this class connects to one PTY instance.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ServiceHub.PtyService.#ctor(StreamJsonRpc.JsonRpc)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.Terminal.ServiceHub.PtyService" /> class.
+            </summary>
+            <param name="rpcConnection">The RPC connection to VS.</param>
+        </member>
+        <member name="E:Microsoft.VisualStudio.Terminal.ServiceHub.PtyService.PtyExited">
+            <summary>
+            Event that is raised when the PTY exits for any reason.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ServiceHub.PtyService.InitPtyAsync(System.IO.Stream,Microsoft.VisualStudio.Terminal.ProfileConfig,System.Int32,System.Int32,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ServiceHub.PtyService.ResizePtyAsync(System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ServiceHub.PtyService.ClosePtyAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ServiceHub.PtyService.ClosePtyAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ServiceHub.PtyService.SetClipboardContentAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.ServiceHub.PtyServiceFactory">
+            <summary>
+            Factory class that creates new instances of <see cref="T:Microsoft.VisualStudio.Terminal.ServiceHub.PtyServiceFactory" />.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Terminal.ServiceHub.PtyServiceFactory.CreateAsync(System.IO.Stream,System.IServiceProvider,Microsoft.ServiceHub.Framework.ServiceActivationOptions,Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.VisualStudio.Terminal.ServiceHub.Shared.PtyResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ServiceHub.Shared.PtyResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ServiceHub.Shared.PtyResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.Terminal.ServiceHub.Shared.PtyResources.ExceptionPowershellNotFound">
+            <summary>
+              Looks up a localized string similar to Could not find powershell.exe under '{0}'.
+            </summary>
+        </member>
+    </members>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>p2qiu8iMRdNPflUzwBvfXPIz7rPvvpLVQcbCFpP9rpI=</DigestValue></Reference></SignedInfo><SignatureValue>jFxSSvlNYLaAELG94p3XSkTsnHvoSjl/yElyjBmpmjYpb6TC/b583t7MrHBxS6NdYyOxUEp2JXDW2Tl5wPJod55BdVTnYWQH+DJIZUD+j2DmYbPy+7MvlzWPaylQt+oV/FG3npbW/qFMESFVJSMS4iz5VXbFJgOw7q5X65K+5fNohlz/CT2vHL9p21Lq4xpjRbSLmvbe/btw1dL/bTgQhZOoHiLDJQPue0VIuvoQeUznIy+HbdvIiRqyiMHjFpWlAwzAkZ9dk9cH2laY7MMK/oJ2vykMPM799jqFk9NsGdoclv5mPZNHA/x14nLIiHhElmC4je3Aku+cFuq2qJwtNQ==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>3QiojSOiARVrryVJn+lnTiamZiMGLORuwCQ+VG3C+rbAvhATw269+qRRqNW7FKed50chWJ53KDIPBStHfIy5cNJYHsQw6+4InH9szgRVqn7/50i8MyRTT+VtNwxf9daGddq0hahpZvjuOnEY0wxQaTEQmWRnXWZUQY4r28tHiNVYEw9U7wHXwWEHvNn4ZlkJGEf5VpgCvr1v9fmzu4x2sV0zQsSyAVtOxfDwY1HMBcccn23tphweIdS+FNDn2vh1/2kREO0qmGc+fbFzNskjn72MiI56kjvNDRgWs+Q78yBvPCdPgTYTrto5eg33Ko2ELNR/zzEkCCuhO5Vw10qV8w==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data></KeyInfo><Object Id="ts-countersig"><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data><CounterSignature ts-format="cms-timestamp-message" xmlns="http://schemas.microsoft.com/xmldsig/timestamp/2003">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</CounterSignature></Object></Signature></doc>

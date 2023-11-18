@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="General" DisplayName="Obecné" PageTemplate="generic" Description="Obecné" xmlns="http://schemas.microsoft.com/build/2009/properties">
+
+  <Rule.Categories>
+    <Category Name="General" DisplayName="Obecné" Description="Obecné"/>
+  </Rule.Categories>
+
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" HasConfigurationCondition="False"/>
+  </Rule.DataSource>
+
+  <DynamicEnumProperty Name="DockerLaunchAction" DisplayName="Spustit akci" Visible="True" EnumProvider="DockerLaunchActionEnumValuesProvider"/>
+  <DynamicEnumProperty Name="DockerServiceName" DisplayName="Název služby" Visible="True" EnumProvider="DockerServiceNameEnumValuesProvider"/>
+
+  <!-- Deprecated, saved for backward compatibility, not visible to user -->
+  <BoolProperty Name="DockerLaunchBrowser" DisplayName="Spustit prohlížeč" Visible="False"/>
+  <StringProperty Name="DockerServiceUrl" DisplayName="Adresa URL služby" Visible="True"/>
+  <StringProperty Name="DockerTargetOS" DisplayName="Cílový operační systém" Visible="True"/>
+  <StringProperty Name="ProjectVersion" Visible="False"/>
+</Rule>

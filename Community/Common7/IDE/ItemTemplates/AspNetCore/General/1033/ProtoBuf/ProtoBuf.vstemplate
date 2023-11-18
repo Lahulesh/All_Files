@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="1600" />
+    <Description Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="1601" />
+    <Icon Package="{39c9c826-8ef8-4079-8c95-428f5b1c323f}" ID="4540"/>
+    <ProjectType>CSharp</ProjectType>
+    <TemplateGroupID>AspNetCore</TemplateGroupID>
+    <TemplateID>Microsoft.Web.Grpc.Protobuf</TemplateID>
+    <DefaultName>protobuf.proto</DefaultName>
+    <NumberOfParentCategoriesToRollUp>2</NumberOfParentCategoriesToRollUp>
+    <SortOrder>598</SortOrder>
+    <ShowByDefault>false</ShowByDefault>
+    <RequiredFrameworkVersion>3.0</RequiredFrameworkVersion>
+  </TemplateData>
+  <TemplateContent>
+    <CustomParameters>
+      <CustomParameter Name="$uistyle$" Value="none" />
+      <CustomParameter Name="$groupid$" Value="Microsoft.Web.Grpc.Protobuf" />
+    </CustomParameters>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>Microsoft.VisualStudio.TemplateEngine.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>Microsoft.VisualStudio.TemplateEngine.Wizard.TemplateEngineWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

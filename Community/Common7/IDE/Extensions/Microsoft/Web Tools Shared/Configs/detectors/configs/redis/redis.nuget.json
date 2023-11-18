@@ -1,0 +1,11 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "redis",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "Microsoft.Extensions.Caching.Redis": ""
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions": "Projects and Solutions",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General": "General",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.ShowErrorListOnBuildErrors": "Always show Error Lis_t if build finishes with errors",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.TrackActiveItem": "Track A_ctive Item in Solution Explorer",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.ShowOutputWindow": "Show _Output window when build starts",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.PromptBeforeMove": "Prompt before _moving files to a new location",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.ParallelProjectLoad": "Allow parallel _project initialization",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.ReopenDocsOnLoad": "Reopen _documents on solution load",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.RestoreExplorerStateOnLoad": "Restore Solution _Explorer project hierarchy state on solution load",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.OpenProjectFilesForEdit": "Open project _files with double-click or the Enter key when supported",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.SymbolicRenameOnFileRename": "Enable symbolic renaming when renaming files",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.PromptForSymbolicRename": "Prompt for _symbolic renaming when renaming files",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.UpdateNamespaceOnFileMove": "Enable namespace update when moving files",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.PromptForNamespaceUpdate": "Prompt to update namespace when moving files",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun": "Build And Run",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.MaxParallelBuilds": "Ma_ximum number of parallel project builds",
+
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunOnlyBuildStartupProjects": "Only b_uild startup projects and dependencies on Run",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenOutOfDate": "On Run, when projects are _out of date",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenOutOfDate.AlwaysBuild": "Always build",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenOutOfDate.NeverBuild": "Never build",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenOutOfDate.PromptToBuild": "Prompt to build",
+
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenBuildErrors": "On Run, when build or deployment _errors occur",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenBuildErrors.LaunchOld": "Launch old version",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenBuildErrors.DoNotLaunch": "Do not launch",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenBuildErrors.PromptToLaunch": "Prompt to launch",
+
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.UseSelectedProjectAsDefaultStartupProject": "For _new solutions use the currently selected project as the startup project",
+
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity": "MSBuild project build output _verbosity",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity.Quiet": "Quiet",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity.Minimal": "Minimal",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity.Normal": "Normal",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity.Detailed": "Detailed",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity.Diagnostic": "Diagnostic",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputFileVerbosity": "MSBuild project build _log file verbosity",
+
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.LowPriorityBuild": "Run build at lo_w process priority",
+
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.Locations": "Locations",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.Locations.NewProjectOrSolution": "_Project location",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.Locations.ProjectTemplates": "User p_roject template location",
+  "Microsoft.VisualStudio.Solution.ProjectsAndSolutions.Locations.ProjectItemTemplates": "User ite_m template location"
+}

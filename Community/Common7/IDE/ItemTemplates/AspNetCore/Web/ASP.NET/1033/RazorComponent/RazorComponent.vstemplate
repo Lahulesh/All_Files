@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="1031" />
+    <Description Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="1032" />
+    <Icon Package="{AAB75614-2F8F-4DA6-B0A6-763C6DBB2969}" ID="13"/>
+    <ProjectType>CSharp</ProjectType>
+    <TemplateGroupID>AspNetCore</TemplateGroupID>
+    <TemplateID>Microsoft.AspNetCore.Components.RazorComponent</TemplateID>
+    <AppliesTo>DotNetCoreRazor</AppliesTo>
+    <DefaultName>Component.razor</DefaultName>
+    <NumberOfParentCategoriesToRollUp>3</NumberOfParentCategoriesToRollUp>
+    <SortOrder>55</SortOrder>
+    <ShowByDefault>false</ShowByDefault>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+  </TemplateData>
+  <TemplateContent>
+    <CustomParameters>
+      <CustomParameter Name="$uistyle$" Value="none" />
+      <CustomParameter Name="$groupid$" Value="Microsoft.AspNetCore.Components.RazorComponent" />
+      <CustomParameter Name="$language$" Value="C#" />
+    </CustomParameters>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>Microsoft.VisualStudio.TemplateEngine.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>Microsoft.VisualStudio.TemplateEngine.Wizard.TemplateEngineWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

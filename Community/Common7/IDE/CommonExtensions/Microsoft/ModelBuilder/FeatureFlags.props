@@ -1,0 +1,23 @@
+<Project>
+  <PropertyGroup>
+    <ModelBuilderEnableForecasting>True</ModelBuilderEnableForecasting>
+    <ModelBuilderEnableSentenceSimilarity>True</ModelBuilderEnableSentenceSimilarity>
+    <ModelBuilderUseNNI>false</ModelBuilderUseNNI>
+    <ModelBuilderUseOctopus>true</ModelBuilderUseOctopus>
+    <MLNetCLIEnablePredict>False</MLNetCLIEnablePredict>
+    <MLNetCLIEnableEvaluate>False</MLNetCLIEnableEvaluate>
+    <MLNetCLIEnableForecasting>True</MLNetCLIEnableForecasting>
+    <MLNetCLIEnableImageClassification>True</MLNetCLIEnableImageClassification>
+    <MLNetCLIEnableTextClassification>True</MLNetCLIEnableTextClassification>
+    <AutoMLServiceEnableBinaryTraining>True</AutoMLServiceEnableBinaryTraining>
+    <AutoMLServiceEnableContinueTraining>False</AutoMLServiceEnableContinueTraining>
+    <AutoMLServiceEnableAllLog>False</AutoMLServiceEnableAllLog>
+
+    <!-- available trainer: LGBM, RF, FASTTREE, LBFGS, SDCA -->
+    <AutoMLServiceMultiClassifiers>LGBM;RF;FASTTREE;LBFGS;SDCA</AutoMLServiceMultiClassifiers>
+    <!-- available trainer: LGBM, RF, FASTTREE, LBFGS, SDCA -->
+    <AutoMLServiceBinaryClassifiers>LGBM;RF;FASTTREE;LBFGS;SDCA</AutoMLServiceBinaryClassifiers>
+    <!-- available trainer: LGBM, RF, FASTTREE, LBFGS, SDCA -->
+    <AutoMLServiceRegressors>LGBM;RF;FASTTREE;LBFGS;SDCA</AutoMLServiceRegressors>
+  </PropertyGroup>
+</Project>

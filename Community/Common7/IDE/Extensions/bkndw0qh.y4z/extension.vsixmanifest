@@ -1,0 +1,24 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="3DF0B260-1070-43D7-AEC0-EE83BC78EE66" Version="17.2.20230926.2" Language="en-US" Publisher="Microsoft Corporation" />
+    <!-- Please refer the Release OneNote to make any re-branding changes below -->
+    <DisplayName>Visual Studio Tools for Containers - Build Tools</DisplayName>
+    <Description xml:space="preserve">Build your applications in the target container environment.</Description>
+    <MoreInfo>https://go.microsoft.com/fwlink/?LinkID=733441</MoreInfo>
+    <PackageId>Microsoft.VisualStudio.Package.DockerTools.BuildTools</PackageId>
+  </Metadata>
+  <Installation AllUsers="true" SystemComponent="true">
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Community">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Professional">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Enterprise">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+</PackageManifest>

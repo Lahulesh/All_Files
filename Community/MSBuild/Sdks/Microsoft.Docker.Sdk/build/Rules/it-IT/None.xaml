@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="None" DisplayName="Proprietà file" PageTemplate="generic" Description="Proprietà file" xmlns="http://schemas.microsoft.com/build/2009/properties">
+
+  <Rule.Categories>
+    <Category Name="Misc" DisplayName="Varie"/>
+    <Category Name="Advanced" DisplayName="Avanzate"/>
+  </Rule.Categories>
+
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" HasConfigurationCondition="false" ItemType="None"/>
+  </Rule.DataSource>
+
+  <StringProperty Name="FullPath" DisplayName="Percorso completo" ReadOnly="true" Category="Misc" Description="Percorso del file.">
+    <StringProperty.DataSource>
+      <DataSource Persistence="Intrinsic" ItemType="None" PersistedName="FullPath"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+
+  <StringProperty Name="FileNameAndExtension" DisplayName="Nome file" ReadOnly="true" Category="Misc" Description="Nome del file.">
+    <StringProperty.DataSource>
+      <DataSource Persistence="Intrinsic" ItemType="None" PersistedName="FileNameAndExtension"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+
+  <BoolProperty Name="Visible" Visible="false"/>
+
+  <StringProperty Name="DependentUpon" Visible="false"/>
+  <StringProperty Name="Link" Visible="false"/>
+</Rule>

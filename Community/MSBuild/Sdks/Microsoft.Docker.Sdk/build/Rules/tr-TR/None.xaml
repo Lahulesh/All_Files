@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="None" DisplayName="Dosya Özellikleri" PageTemplate="generic" Description="Dosya Özellikleri" xmlns="http://schemas.microsoft.com/build/2009/properties">
+
+  <Rule.Categories>
+    <Category Name="Misc" DisplayName="Çeşitli"/>
+    <Category Name="Advanced" DisplayName="Gelişmiş"/>
+  </Rule.Categories>
+
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" HasConfigurationCondition="false" ItemType="None"/>
+  </Rule.DataSource>
+
+  <StringProperty Name="FullPath" DisplayName="Tam Yol" ReadOnly="true" Category="Misc" Description="Dosyanın konumu.">
+    <StringProperty.DataSource>
+      <DataSource Persistence="Intrinsic" ItemType="None" PersistedName="FullPath"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+
+  <StringProperty Name="FileNameAndExtension" DisplayName="Dosya Adı" ReadOnly="true" Category="Misc" Description="Dosyanın adı.">
+    <StringProperty.DataSource>
+      <DataSource Persistence="Intrinsic" ItemType="None" PersistedName="FileNameAndExtension"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+
+  <BoolProperty Name="Visible" Visible="false"/>
+
+  <StringProperty Name="DependentUpon" Visible="false"/>
+  <StringProperty Name="Link" Visible="false"/>
+</Rule>

@@ -1,0 +1,44 @@
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{CD71AC6C-3010-40A6-B9F4-F84A1BFCAED1}]
+"name"="Microsoft.VisualStudio.WebClient.Diagnostics.HtmlToolHost"
+"codeBase"="$PackageFolder$\Microsoft.VisualStudio.WebClient.Diagnostics.HtmlToolHost.dll"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="17.0.0.0"
+[$RootKey$\Packages\{b66f381b-48de-4c10-b71b-ef9a2a808d85}]
+@="Microsoft.VisualStudio.WebClient.Diagnostics.HtmlToolHost.Package.HtmlToolHostPackage"
+"InprocServer32"="$WinDir$\system32\MSCOREE.DLL"
+"Class"="Microsoft.VisualStudio.WebClient.Diagnostics.HtmlToolHost.Package.HtmlToolHostPackage"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.WebClient.Diagnostics.HtmlToolHost.dll"
+[$RootKey$\AutoLoadPackages\{adfc4e61-0397-11d1-9f4e-00a0c911004f}]
+"{b66f381b-48de-4c10-b71b-ef9a2a808d85}"=dword:00000000
+[$RootKey$\Menus]
+"{b66f381b-48de-4c10-b71b-ef9a2a808d85}"=", Menus.ctmenu, 1"
+[$RootKey$\Services\{b9d4eddc-882c-434b-bd3f-a5f48f403f93}]
+@="{b66f381b-48de-4c10-b71b-ef9a2a808d85}"
+"Name"="IVsColorProvider"
+[$RootKey$\FontAndColors\WebClient Diagnostic Tools]
+"Category"="{2AA714AE-53BE-4393-84E0-DC95B57A1891}"
+"Package"="{B9D4EDDC-882C-434B-BD3F-A5F48F403F93}"
+[$RootKey$\Packages\{b66f381b-48de-4c10-b71b-ef9a2a808d85}]
+"SupportsDynamicToolOwner"=dword:00000001
+[$RootKey$\KeyBindingTables\{01e50993-e6a4-491e-ab3f-3a9939de3524}]
+@="#113"
+"Package"="{b66f381b-48de-4c10-b71b-ef9a2a808d85}"
+[$RootKey$\KeyBindingTables\{074F1AD9-308B-488C-861E-CF88182E2788}]
+@="#114"
+"Package"="{b66f381b-48de-4c10-b71b-ef9a2a808d85}"
+[$RootKey$\CLSID]
+[$RootKey$\CLSID\{1ff7c067-4355-44ae-a8d4-d3950d9a2917}]
+"Assembly"="Microsoft.VisualStudio.WebClient.Diagnostics.HtmlToolHost,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+"Class"="Microsoft.VisualStudio.WebClient.WKDebug.Engine.AD7.AD7LegacyWebKitProgramProvider"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.WebClient.Diagnostics.HtmlToolHost.dll"
+"ThreadingModel"="Free"
+[$RootKey$\CLSID\{a33728da-c9b1-4306-b29e-d4ccd85846d5}]
+"Assembly"="Microsoft.VisualStudio.WebClient.Diagnostics.HtmlToolHost,version=17.0.0.0,publicKeyToken=b03f5f7f11d50a3a,culture=neutral"
+"Class"="Microsoft.VisualStudio.WebClient.WKDebug.Engine.AD7.AD7Engine"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.WebClient.Diagnostics.HtmlToolHost.dll"
+"ThreadingModel"="Free"
+; Register our engine as a JavaScript debug engine for VS debugger.
+[$RootKey$\Debugger\JavaScript Engines\{F8BAC420-981E-4D06-9707-4A617E90EF0B}]

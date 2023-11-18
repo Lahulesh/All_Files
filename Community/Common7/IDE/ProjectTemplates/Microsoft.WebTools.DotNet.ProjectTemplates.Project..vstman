@@ -1,0 +1,174 @@
+﻿<VSTemplateManifest Version="1.0" xmlns="http://schemas.microsoft.com/developer/vstemplatemanifest/2015">
+  <VSTemplateContainer TemplateType="ProjectGroup" Locale="1033">
+    <RelativePathOnDisk>CSharp\Web\1033\BlazorTemplate</RelativePathOnDisk>
+    <TemplateFileName>BlazorTemplate.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="1052" />
+        <Description Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="1053" />
+        <Icon Package="{AAB75614-2F8F-4DA6-B0A6-763C6DBB2969}" ID="13" />
+        <ProjectType>CSharp</ProjectType>
+        <ProjectSubType>Web</ProjectSubType>
+        <TemplateGroupID>Web</TemplateGroupID>
+        <TemplateID>Microsoft.WAP.CSharp.ASPNET.Blazor</TemplateID>
+        <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+        <SortOrder>20</SortOrder>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>BlazorApp</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <LocationField>Enabled</LocationField>
+        <PromptForSaveOnCreation>true</PromptForSaveOnCreation>
+        <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+        <LanguageTag>csharp</LanguageTag>
+        <PlatformTag>linux</PlatformTag>
+        <PlatformTag>macos</PlatformTag>
+        <PlatformTag>windows</PlatformTag>
+        <ProjectTypeTag>cloud</ProjectTypeTag>
+        <ProjectTypeTag>web</ProjectTypeTag>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="ProjectGroup" Locale="1033">
+    <RelativePathOnDisk>CSharp\Web\1033\GrpcTemplate</RelativePathOnDisk>
+    <TemplateFileName>GrpcTemplate.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="1027" />
+        <Description Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="1057" />
+        <Icon Package="{AAB75614-2F8F-4DA6-B0A6-763C6DBB2969}" ID="17" />
+        <ProjectType>CSharp</ProjectType>
+        <ProjectSubType>Web</ProjectSubType>
+        <TemplateGroupID>Web</TemplateGroupID>
+        <TemplateID>Microsoft.WAP.CSharp.ASPNET.Grpc</TemplateID>
+        <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+        <SortOrder>25</SortOrder>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>GrpcService</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <LocationField>Enabled</LocationField>
+        <PromptForSaveOnCreation>true</PromptForSaveOnCreation>
+        <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+        <LanguageTag>csharp</LanguageTag>
+        <PlatformTag>linux</PlatformTag>
+        <PlatformTag>macos</PlatformTag>
+        <PlatformTag>windows</PlatformTag>
+        <ProjectTypeTag>cloud</ProjectTypeTag>
+        <ProjectTypeTag>service</ProjectTypeTag>
+        <ProjectTypeTag>web</ProjectTypeTag>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="ProjectGroup" Locale="1033">
+    <RelativePathOnDisk>CSharp\Web\1033\RazorClassLibraryTemplate</RelativePathOnDisk>
+    <TemplateFileName>RazorClassLibraryTemplate.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="1023" />
+        <Description Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="1024" />
+        <Icon Package="{AAB75614-2F8F-4DA6-B0A6-763C6DBB2969}" ID="14" />
+        <ProjectType>CSharp</ProjectType>
+        <ProjectSubType>Web</ProjectSubType>
+        <TemplateGroupID>Web</TemplateGroupID>
+        <TemplateID>Microsoft.WAP.CSharp.ASPNET.RazorClassLibrary</TemplateID>
+        <NumberOfParentCategoriesToRollUp>0</NumberOfParentCategoriesToRollUp>
+        <SortOrder>30</SortOrder>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>RazorClassLibrary</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <LocationField>Enabled</LocationField>
+        <PromptForSaveOnCreation>true</PromptForSaveOnCreation>
+        <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+        <LanguageTag>csharp</LanguageTag>
+        <PlatformTag>linux</PlatformTag>
+        <PlatformTag>macos</PlatformTag>
+        <PlatformTag>windows</PlatformTag>
+        <ProjectTypeTag>library</ProjectTypeTag>
+        <ProjectTypeTag>web</ProjectTypeTag>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="ProjectGroup" Locale="1033">
+    <RelativePathOnDisk>CSharp\Web\1033\WebTemplateCore</RelativePathOnDisk>
+    <TemplateFileName>WebTemplateCore.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="6001" />
+        <Description Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="6002" />
+        <Icon Package="{AAB75614-2F8F-4DA6-B0A6-763C6DBB2969}" ID="4" />
+        <ProjectType>CSharp</ProjectType>
+        <ProjectSubType>Web</ProjectSubType>
+        <TemplateGroupID>Web</TemplateGroupID>
+        <TemplateID>Microsoft.WAP.CSharp.ASPNET.WebCore</TemplateID>
+        <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+        <SortOrder>16</SortOrder>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>WebApplication</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <LocationField>Enabled</LocationField>
+        <PromptForSaveOnCreation>true</PromptForSaveOnCreation>
+        <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+        <LanguageTag>csharp</LanguageTag>
+        <PlatformTag>linux</PlatformTag>
+        <PlatformTag>macos</PlatformTag>
+        <PlatformTag>windows</PlatformTag>
+        <ProjectTypeTag>cloud</ProjectTypeTag>
+        <ProjectTypeTag>service</ProjectTypeTag>
+        <ProjectTypeTag>web</ProjectTypeTag>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="ProjectGroup" Locale="1033">
+    <RelativePathOnDisk>CSharp\Web\1033\WebTemplateCoreFullFramework</RelativePathOnDisk>
+    <TemplateFileName>WebTemplateCoreFullFramework.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="6001" />
+        <Description Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="6002" />
+        <Icon Package="{AAB75614-2F8F-4DA6-B0A6-763C6DBB2969}" ID="4" />
+        <ProjectType>CSharp</ProjectType>
+        <ProjectSubType>Web</ProjectSubType>
+        <TemplateGroupID>Web</TemplateGroupID>
+        <TemplateID>Microsoft.WAP.CSharp.ASPNET.WebCore.FullFramework</TemplateID>
+        <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+        <SortOrder>17</SortOrder>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>WebApplication</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <LocationField>Enabled</LocationField>
+        <PromptForSaveOnCreation>true</PromptForSaveOnCreation>
+        <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+        <RequiredFrameworkVersion>4.5.2</RequiredFrameworkVersion>
+        <Hidden>true</Hidden>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="ProjectGroup" Locale="1033">
+    <RelativePathOnDisk>CSharp\Web\1033\WorkerTemplate</RelativePathOnDisk>
+    <TemplateFileName>WorkerTemplate.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="1025" />
+        <Description Package="{0CD94836-1526-4E85-87D3-FB5274C5AFC9}" ID="1055" />
+        <Icon Package="{AAB75614-2F8F-4DA6-B0A6-763C6DBB2969}" ID="15" />
+        <ProjectType>CSharp</ProjectType>
+        <ProjectSubType>Web</ProjectSubType>
+        <TemplateGroupID>Web</TemplateGroupID>
+        <TemplateID>Microsoft.WAP.CSharp.ASPNET.Worker</TemplateID>
+        <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+        <SortOrder>40</SortOrder>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>WorkerService</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <LocationField>Enabled</LocationField>
+        <PromptForSaveOnCreation>true</PromptForSaveOnCreation>
+        <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+        <LanguageTag>csharp</LanguageTag>
+        <PlatformTag>linux</PlatformTag>
+        <PlatformTag>macos</PlatformTag>
+        <PlatformTag>windows</PlatformTag>
+        <ProjectTypeTag>cloud</ProjectTypeTag>
+        <ProjectTypeTag>service</ProjectTypeTag>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+</VSTemplateManifest>

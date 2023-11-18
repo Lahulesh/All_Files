@@ -1,0 +1,1024 @@
+{
+  "properties": {
+    "environment.general.windowListItems": {
+      "type": "integer",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.General.WindowListItems%",
+      "default": 10,
+      "maximum": 24,
+      "minimum": 1,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\WindowMenuItemCount"
+          }
+        }
+      }
+    },
+    "environment.general.mruListItems": {
+      "type": "integer",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.General.MruListItems%",
+      "default": 10,
+      "maximum": 24,
+      "minimum": 1,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\MRUListItemCount"
+          }
+        }
+      }
+    },
+    "environment.general.showStatusBar": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.General.StatusBar%",
+      "default": true,
+      "requiresRestart": true,
+      "description": "%Microsoft.VisualStudio.Shell.Environment.General.StatusBar.Description%",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\StatusBar",
+            "bitmask": 1
+          }
+        }
+      }
+    },
+    "environment.general.dockedWinClose": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.General.CloseButton%",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\DockedWinClose"
+          }
+        }
+      }
+    },
+    "environment.general.dockedWinAuto": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.General.AutoHideButton%",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\DockedWinAuto"
+          }
+        }
+      }
+    },
+    "environment.general.disableTouch": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.General.DisableTouch%",
+      "default": false,
+      "requiresRestart": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\DisableTouch",
+            "bitmask": 1
+          }
+        }
+      }
+    },
+    "environment.general.environmentStart": {
+      "type": "string",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.General.Startup%",
+      "default": "start-window",
+      "enum": [
+        "start-window",
+        "last-solution",
+        "empty"
+      ],
+      "enumItemLabels": [
+        "%Microsoft.VisualStudio.Shell.Environment.General.Startup.StartWindow%",
+        "%Microsoft.VisualStudio.Shell.Environment.General.Startup.LastSolution%",
+        "%Microsoft.VisualStudio.Shell.Environment.General.Startup.Empty%"
+      ],
+      "transientScopesSupported": true,
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.IDE.OnEnvironmentStartup_Dev16"
+          },
+          "map": [
+            {
+              "result": "start-window",
+              "match": 13
+            },
+            {
+              "result": "last-solution",
+              "match": 11
+            },
+            {
+              "result": "empty",
+              "match": 10
+            }
+          ]
+        }
+      }
+    },
+    "environment.autoRecover.backUpUnsavedChanges": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.AutoRecover.backUpUnsavedChanges%",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\AutoRecover\\AutoRecover Enabled"
+          }
+        }
+      }
+    },
+    "environment.autoRecover.backupIntervalMinutes": {
+      "type": "integer",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.AutoRecover.BackupIntervalMinutes%",
+      "default": 5,
+      "enableWhen": "${config:environment.autoRecover.backUpUnsavedChanges}==\u0027true\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\AutoRecover\\AutoRecover Save Interval"
+          }
+        }
+      }
+    },
+    "environment.autoRecover.informationLifetimeDays": {
+      "type": "integer",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.AutoRecover.InformationLifetimeDays%",
+      "default": 7,
+      "enableWhen": "${config:environment.autoRecover.backUpUnsavedChanges}==\u0027true\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\AutoRecover\\AutoRecover Keep Interval"
+          }
+        }
+      }
+    },
+    "environment.visualExperience.colorTheme": {
+      "type": "string",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Visual.ColorTheme%",
+      "default": "dark",
+      "enum": [
+        "dark",
+        "light",
+        "blue",
+        "blue-extra-contrast",
+        "system"
+      ],
+      "enumItemLabels": [
+        "@ThemeName_Dark;{5e56b3db-7964-4588-8d49-d3523ab7bdb9}",
+        "@ThemeName_Light;{5e56b3db-7964-4588-8d49-d3523ab7bdb9}",
+        "@ThemeName_Blue;{5e56b3db-7964-4588-8d49-d3523ab7bdb9}",
+        "@ThemeName_AdditionalContrast;{5e56b3db-7964-4588-8d49-d3523ab7bdb9}",
+        "@ThemeName_System;{5e56b3db-7964-4588-8d49-d3523ab7bdb9}"
+      ],
+      "transientScopesSupported": true,
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "Microsoft.VisualStudio.ColorThemeNew"
+            }
+          ],
+          "map": [
+            {
+              "result": "dark",
+              "matches": [
+                "{1ded0138-47ce-435e-84ef-9ec1f439b749}"
+              ]
+            },
+            {
+              "result": "light",
+              "matches": [
+                "{de3dbbcd-f642-433c-8353-8f1df4370aba}"
+              ]
+            },
+            {
+              "result": "blue",
+              "matches": [
+                "{a4d6a176-b948-4b29-8c66-53c97a1ed7d0}"
+              ]
+            },
+            {
+              "result": "blue-extra-contrast",
+              "matches": [
+                "{ce94d289-8481-498b-8ca9-9b6191a315b9}"
+              ]
+            },
+            {
+              "result": "system",
+              "matches": [
+                "{619dac1e-8220-4bd9-96fb-75ceb61a6107}"
+              ]
+            },
+            {
+              "result": "@=0",
+              "matches": [
+                "@any"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "environment.visualExperience.forceWindowsTheme": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Visual.HighContrast%",
+      "default": true,
+      "requiresRestart": true,
+      "transientScopesSupported": true,
+      "tags": [
+        "accessibility"
+      ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\ForceWindowsTheme"
+          }
+        }
+      }
+    },
+    "environment.visualExperience.titleCaseMenus": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Visual.TitleCaseMenus%",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.Platform.TitleCaseMenus"
+          }
+        }
+      }
+    },
+    "environment.visualExperience.useMinimalMode": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Visual.CompactMenus%",
+      "default": true,
+      "requiresRestart": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "EnvironmentOptions.UseMinimalMode"
+          }
+        }
+      }
+    },
+    "environment.visualExperience.enablePerMonitorAwareness": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Visual.OptimizeRendering%",
+      "default": false,
+      "requiresRestart": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.EnablePerMonitorAwareness"
+          }
+        }
+      }
+    },
+    "environment.visualExperience.effects.hardwareAcceleration": {
+      "type": "string",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Visual.HardwareAcceleration%",
+      "default": "auto",
+      "enum": [
+        "auto",
+        "prefer",
+        "never"
+      ],
+      "enumItemLabels": [
+        "%Microsoft.VisualStudio.Shell.Environment.Visual.HardwareAcceleration.Auto%",
+        "%Microsoft.VisualStudio.Shell.Environment.Visual.HardwareAcceleration.Prefer%",
+        "%Microsoft.VisualStudio.Shell.Environment.Visual.HardwareAcceleration.Never%"
+      ],
+      "requiresRestart": true,
+      "transientScopesSupported": true
+    },
+    "environment.visualExperience.effects.richVisuals": {
+      "type": "string",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Visual.RichClient%",
+      "default": "auto",
+      "enum": [
+        "auto",
+        "always",
+        "never"
+      ],
+      "enumItemLabels": [
+        "%Microsoft.VisualStudio.Shell.Environment.Visual.RichClient.Auto%",
+        "%Microsoft.VisualStudio.Shell.Environment.Visual.RichClient.Always%",
+        "%Microsoft.VisualStudio.Shell.Environment.Visual.RichClient.Never%"
+      ],
+      "requiresRestart": true,
+      "description": "%Microsoft.VisualStudio.Shell.Environment.Visual.RichClient.Description%",
+      "transientScopesSupported": true
+    },
+    "environment.documents.detectFileChangesOutsideIde": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Documents.DetectFileChanges%",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\DetectFileChange"
+          }
+        }
+      }
+    },
+    "environment.documents.autoLoadExternalChanges": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Documents.ReloadModified%",
+      "default": true,
+      "enableWhen": "${config:environment.documents.detectFileChangesOutsideIde}==\u0027true\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\FileAutoReloadOption"
+          }
+        }
+      }
+    },
+    "environment.documents.allowEditingReadOnlyFiles": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Documents.AllowEditingReadOnly%",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "SourceControl\\AllowUncontrolledInMemoryEditing"
+          }
+        }
+      }
+    },
+    "environment.documents.initializeOpenFileFromCurrentDocument": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Documents.ActiveDocumentDirectory%",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\OpenFromCurrentDocDir"
+          }
+        }
+      }
+    },
+    "environment.documents.checkForConsistentLineEndings": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Documents.CheckLineEndings%",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\CheckLineEndingsOnLoad"
+          }
+        }
+      }
+    },
+    "environment.documents.showGlobalUndoChangeLossDialog": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Documents.UndoChangeLossDialog%",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\ShowGlobalUndoChangeLossDialog"
+          }
+        }
+      }
+    },
+    "environment.documents.showMiscFileProject": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Documents.ShowMiscFiles%",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\ShowMiscellaneousFilesProject"
+          }
+        }
+      }
+    },
+    "environment.documents.miscFileProjectSavesLastNItems": {
+      "type": "integer",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Documents.MiscFilesItems%",
+      "default": 0,
+      "enableWhen": "${config:environment.documents.showMiscFileProject}==\u0027true\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\MiscellaneousProjFiles"
+          }
+        }
+      }
+    },
+    "environment.documents.saveDocsAsUnicodeWhenDataLoss": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Documents.UnicodeWhenDataLoss%",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\SaveDocsAsUnicodeInDataLoss"
+          }
+        }
+      }
+    },
+    "environment.documents.autoSave": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Documents.AutoSave%",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Environment.Documents.Autosave"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.layout": {
+      "type": "string",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.TabLayout%",
+      "default": "top",
+      "enum": [
+        "top",
+        "left",
+        "right"
+      ],
+      "enumItemLabels": [
+        "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.TabLayout.Top%",
+        "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.TabLayout.Left%",
+        "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.TabLayout.Right%"
+      ],
+      "transientScopesSupported": true,
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.DocumentTabPanelDockLocation"
+          },
+          "map": [
+            {
+              "result": "top",
+              "match": 1
+            },
+            {
+              "result": "left",
+              "match": 0
+            },
+            {
+              "result": "right",
+              "match": 2
+            }
+          ]
+        }
+      }
+    },
+    "environment.tabs.documentTabs.tabSortOrder": {
+      "type": "string",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.TabSorting%",
+      "default": "alphabetical",
+      "enum": [
+        "alphabetical",
+        "most-recent-first",
+        "most-recent-last"
+      ],
+      "enumItemLabels": [
+        "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.TabSorting.Alpha%",
+        "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.TabSorting.RecentFirst%",
+        "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.TabSorting.RecentLast%"
+      ],
+      "enableWhen": "${config:environment.tabs.documentTabs.layout}!=\u0027top\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.TabSortOrder"
+          },
+          "map": [
+            {
+              "result": "alphabetical",
+              "match": 0
+            },
+            {
+              "result": "most-recent-first",
+              "match": 1
+            },
+            {
+              "result": "most-recent-last",
+              "match": 2
+            }
+          ]
+        }
+      }
+    },
+    "environment.tabs.documentTabs.groupByProject": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.GroupTabs%",
+      "default": true,
+      "enableWhen": "${config:environment.tabs.documentTabs.layout}!=\u0027top\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.GroupTabsByProject"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.insertRight": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.InsertRight%",
+      "default": false,
+      "enableWhen": "${config:environment.tabs.documentTabs.layout}==\u0027top\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\DocumentDockPreference"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.multiRowTabs": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.MultipleRows%",
+      "default": false,
+      "enableWhen": "${config:environment.tabs.documentTabs.layout}==\u0027top\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.IsMultiRowTabsEnabled"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.showInvisibleTabsInItalic": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.ItalicInvisible%",
+      "default": false,
+      "enableWhen": "${config:environment.tabs.documentTabs.layout}==\u0027top\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.ShowInvisibleTabsInItalic"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.boldSelectedTabs": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.BoldSelected%",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.BoldSelectedTabs"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.minimumTabWidth": {
+      "type": "integer",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.MinimumTabWidth%",
+      "default": 60,
+      "maximum": 999,
+      "minimum": 60,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.MinimumTabWidth"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.maximumTabWidth": {
+      "type": "integer",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.MaximumTabWidth%",
+      "default": 215,
+      "maximum": 999,
+      "minimum": 60,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.MaximumTabWidth"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.showHideButtonInTabs": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.CloseButtonTabs%",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.ShowHideButtonInTabs"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.showHideButtonInWell": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.CloseButtonWell%",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.ShowHideButtonInWell"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.dirtyIndicator": {
+      "type": "string",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.DirtyIndicator%",
+      "default": "star",
+      "enum": [
+        "star",
+        "dot"
+      ],
+      "enumItemLabels": [
+        "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.DirtyIndicator.Default%",
+        "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.DirtyIndicator.Dot%"
+      ],
+      "transientScopesSupported": true,
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.DirtyIndicatorPreference"
+          },
+          "map": [
+            {
+              "result": "star",
+              "match": 0
+            },
+            {
+              "result": "dot",
+              "match": 1
+            }
+          ]
+        }
+      }
+    },
+    "environment.tabs.documentTabs.colorizeDocumentTabs": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.ColorizeTabs%",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.ColorizeDocumentTabs"
+          }
+        }
+      }
+    },
+    "environment.tabs.documentTabs.colorizeDocumentTabsMethod": {
+      "type": "string",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.FileGroupProvider%",
+      "default": "project",
+      "enum": [
+        "project",
+        "extension",
+        "regex"
+      ],
+      "enumItemLabels": [
+        "@ProjectFileGroupProviderDisplayName;{949BB610-6840-4ADE-8C75-55CDB16BF0E8}",
+        "@FileExtensionFileGroupProviderDisplayName;{949BB610-6840-4ADE-8C75-55CDB16BF0E8}",
+        "@RegexFileGroupProviderDisplayName;{949BB610-6840-4ADE-8C75-55CDB16BF0E8}"
+      ],
+      "enableWhen": "${config:environment.tabs.documentTabs.colorizeDocumentTabs}==\u0027true\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "custom": {
+          "inputs": [
+            {
+              "store": "SettingsManager",
+              "path": "WindowManagement.Options.CurrentFileGroupProvider"
+            }
+          ],
+          "map": [
+            {
+              "result": "project",
+              "matches": [
+                "{15146f07-d8dd-40a1-8b10-dd4ba62587cb}"
+              ]
+            },
+            {
+              "result": "extension",
+              "matches": [
+                "{5f703f8e-4b10-4c69-9b24-90640a112ac1}"
+              ]
+            },
+            {
+              "result": "regex",
+              "matches": [
+                "{f282ea13-0551-44cf-8646-b8083627ac40}"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "environment.tabs.pinnedTabs.showPinnedTabsInSeparateRow": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.PinnedTabs.SeparateRow%",
+      "default": false,
+      "enableWhen": "${config:environment.tabs.documentTabs.layout}==\u0027top\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.ShowPinnedTabsInSeparateRow"
+          }
+        }
+      }
+    },
+    "environment.tabs.pinnedTabs.showPinButtonInUnpinnedTabs": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.PinnedTabs.PinButton%",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.ShowPinButtonInUnpinnedTabs"
+          }
+        }
+      }
+    },
+    "environment.tabs.pinnedTabs.maintainPinStatus": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.PinnedTabs.PinStatus%",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.MaintainPinStatus"
+          }
+        }
+      }
+    },
+    "environment.tabs.previewTab.enable": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.PreviewTab.Enable%",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.EnablePreviewTab"
+          }
+        }
+      }
+    },
+    "environment.tabs.previewTab.singleClickPreviewInSolutionExplorer": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.PreviewTab.SolutionExplorer%",
+      "default": true,
+      "enableWhen": "${config:environment.tabs.previewTab.enable}==\u0027true\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.EnableSingleClickPreviewInSolutionExplorer"
+          }
+        }
+      }
+    },
+    "environment.tabs.previewTab.singleClickPreviewInFindResults": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.PreviewTab.FindResults%",
+      "default": true,
+      "enableWhen": "${config:environment.tabs.previewTab.enable}==\u0027true\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.EnableSingleClickPreviewInFindResults"
+          }
+        }
+      }
+    },
+    "environment.tabs.previewTab.singleClickPreviewInNavigateTo": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.PreviewTab.NavigateTo%",
+      "default": true,
+      "enableWhen": "${config:environment.tabs.previewTab.enable}==\u0027true\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.EnableSingleClickPreviewInNavigateTo"
+          }
+        }
+      }
+    },
+    "environment.windows.toolWindows.showAutoHiddenWindowsOnHover": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Windows.ToolWindows.ShowHiddenOnHover%",
+      "default": false,
+      "transientScopesSupported": true,
+      "tags": [
+        "accessibility"
+      ],
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.ShowAutoHiddenWindowsOnHover"
+          }
+        }
+      }
+    },
+    "environment.windows.toolWindows.showAutoHideChannelsOnChanges": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Windows.ToolWindows.ShowSidebarAfterChange%",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.ShowAutoHideChannelsOnChanges"
+          }
+        }
+      }
+    },
+    "environment.windows.toolWindows.windowLayoutSkipApplyConfirmation": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Windows.ToolWindows.SkipApplyConfirmation%",
+      "default": false,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "Microsoft.VisualStudio.Platform.WindowManagement.Layouts.WindowLayoutSkipApplyConfirmation"
+          }
+        }
+      }
+    },
+    "environment.windows.floatingWindows.independentTabWell": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Windows.FloatingWindows.IndependentTabWell%",
+      "default": true,
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.EnableIndependentTabWell"
+          }
+        }
+      }
+    },
+    "environment.windows.floatingWindows.independentToolWindows": {
+      "type": "boolean",
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Windows.FloatingWindows.IndependentToolWindows%",
+      "default": false,
+      "enableWhen": "${config:environment.windows.floatingWindows.independentTabWell}==\u0027true\u0027",
+      "transientScopesSupported": true,
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "WindowManagement.Options.EnableIndependentToolWindows"
+          }
+        }
+      }
+    }
+  },
+  "categories": {
+    "environment": {
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Category%",
+      "order": 0
+    },
+    "environment.general": {
+      "title": "%Microsoft.VisualStudio.Shell.Environment.General.Category%",
+      "order": 0,
+      "helpUri": "%Microsoft.VisualStudio.Shell.Environment.General.Category.HelpUri%",
+      "legacyOptionPageId": "13a86627-ba5b-4a61-933b-3c278d22d941"
+    },
+    "environment.visualExperience": {
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Visual.Category%",
+      "order": 1
+    },
+    "environment.visualExperience.effects": {
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Visual.Effects.Category%"
+    },
+    "environment.autoRecover": {
+      "title": "%Microsoft.VisualStudio.Shell.Environment.AutoRecover.Category%",
+      "legacyOptionPageId": "c1e09982-0050-4912-bcdc-866d8e1aee27"
+    },
+    "environment.documents": {
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Documents.Category%",
+      "legacyOptionPageId": "8b524402-022c-20ab-1925-94e7fa284eee"
+    },
+    "environment.previewFeatures": {
+      "title": "%Microsoft.VisualStudio.Shell.Environment.PreviewFeatures.Category%",
+      "messages": [
+        {
+          "text": "%Microsoft.VisualStudio.Shell.Environment.PreviewFeatures.Description%"
+        }
+      ],
+      "legacyOptionPageId": "fca50351-5e03-4e31-9cc0-ab59a9c6b829"
+    },
+    "environment.tabs": {
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.Category%",
+      "legacyOptionPageId": "ccf27946-63d9-4806-91ba-eebf5f3dfa4a"
+    },
+    "environment.tabs.documentTabs": {
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.DocumentTabs.Category%"
+    },
+    "environment.tabs.pinnedTabs": {
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.PinnedTabs.Category%"
+    },
+    "environment.tabs.previewTab": {
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Tabs.PreviewTab.Category%"
+    },
+    "environment.windows": {
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Windows.Category%"
+    },
+    "environment.windows.toolWindows": {
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Windows.ToolWindows.Category%"
+    },
+    "environment.windows.floatingWindows": {
+      "title": "%Microsoft.VisualStudio.Shell.Environment.Windows.FloatingWindows.Category%"
+    }
+  }
+}

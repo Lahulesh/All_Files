@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="General" DisplayName="Genel" PageTemplate="generic" Description="Genel" xmlns="http://schemas.microsoft.com/build/2009/properties">
+
+  <Rule.Categories>
+    <Category Name="General" DisplayName="Genel" Description="Genel"/>
+  </Rule.Categories>
+
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" HasConfigurationCondition="False"/>
+  </Rule.DataSource>
+
+  <DynamicEnumProperty Name="DockerLaunchAction" DisplayName="Başlatma Eylemi" Visible="True" EnumProvider="DockerLaunchActionEnumValuesProvider"/>
+  <DynamicEnumProperty Name="DockerServiceName" DisplayName="Hizmet Adı" Visible="True" EnumProvider="DockerServiceNameEnumValuesProvider"/>
+
+  <!-- Deprecated, saved for backward compatibility, not visible to user -->
+  <BoolProperty Name="DockerLaunchBrowser" DisplayName="Tarayıcıyı Başlat" Visible="False"/>
+  <StringProperty Name="DockerServiceUrl" DisplayName="Hizmet URL'si" Visible="True"/>
+  <StringProperty Name="DockerTargetOS" DisplayName="Hedef İşletim Sistemi" Visible="True"/>
+  <StringProperty Name="ProjectVersion" Visible="False"/>
+</Rule>

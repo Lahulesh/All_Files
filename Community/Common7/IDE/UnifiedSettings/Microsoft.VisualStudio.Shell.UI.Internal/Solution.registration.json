@@ -1,0 +1,455 @@
+{
+  "properties": {
+    "projectsAndSolutions.general.showErrorListOnBuildErrors": {
+      "type": "boolean",
+      "default": false,
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.ShowErrorListOnBuildErrors%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\ShowTasklistOnBuildEnd"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.trackActiveItem": {
+      "type": "boolean",
+      "default": false,
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.TrackActiveItem%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "SolutionNavigator.TrackSelCtxInSlnExp"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.showOutputWindow": {
+      "type": "boolean",
+      "default": true,
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.ShowOutputWindow%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\ShowOutputWindowOnBuildStart"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.promptBeforeMove": {
+      "type": "boolean",
+      "default": true,
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.PromptBeforeMove%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\PromptForFileMove"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.parallelProjectLoad": {
+      "type": "boolean",
+      "default": true,
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.ParallelProjectLoad%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\UseDTBatchBuildService"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.reopenDocsOnLoad": {
+      "type": "boolean",
+      "default": true,
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.ReopenDocsOnLoad%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\RestoreDocumentsOnSolutionLoad"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.restoreExplorerStateOnLoad": {
+      "type": "boolean",
+      "default": true,
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.RestoreExplorerStateOnLoad%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\RestoreSolutionExplorerStateOnSolutionLoad"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.openProjectFilesForEdit": {
+      "type": "boolean",
+      "default": true,
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.OpenProjectFilesForEdit%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "SolutionNavigator.DoubleClickOpenProjectFile"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.symbolicRenameOnFileRename": {
+      "type": "boolean",
+      "default": true,
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.SymbolicRenameOnFileRename%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "SolutionNavigator.EnableSymbolicRename"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.promptForSymbolicRename": {
+      "type": "boolean",
+      "default": true,
+      "enableWhen": "${projectsAndSolutions.general.symbolicRenameOnFileRename}==\u0027true\u0027",
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.PromptForSymbolicRename%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "General\\PromptForSymbolicRename"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.updateNamespaceOnFileMove": {
+      "type": "boolean",
+      "default": true,
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.UpdateNamespaceOnFileMove%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "SolutionNavigator.EnableNamespaceUpdate"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.general.promptForNamespaceUpdate": {
+      "type": "boolean",
+      "default": true,
+      "enableWhen": "${projectsAndSolutions.general.updateNamespaceOnFileMove}==\u0027true\u0027",
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General.PromptForNamespaceUpdate%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "SolutionNavigator.PromptNamespaceUpdate"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.maxParallelBuilds": {
+      "type": "integer",
+      "default": 0,
+      "maximum": 1024,
+      "minimum": 0,
+      "environmentVariableDefault": "NUMBER_OF_PROCESSORS",
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.MaxParallelBuilds%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.MaxConcurrentBuilds"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.onRunOnlyBuildStartupProjects": {
+      "type": "boolean",
+      "default": true,
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunOnlyBuildStartupProjects%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.BuildStartupsOnlyOnRun"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.onRunWhenOutOfDate": {
+      "type": "string",
+      "default": "alwaysBuild",
+      "enum": [
+        "alwaysBuild",
+        "neverBuild",
+        "promptToBuild"
+      ],
+      "enumItemLabels": [
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenOutOfDate.AlwaysBuild%",
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenOutOfDate.NeverBuild%",
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenOutOfDate.PromptToBuild%"
+      ],
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenOutOfDate%",
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.BuildOutOfDateProjects"
+          },
+          "map": [
+            {
+              "result": "alwaysBuild",
+              "match": 0
+            },
+            {
+              "result": "neverBuild",
+              "match": 1
+            },
+            {
+              "result": "promptToBuild",
+              "match": 2
+            }
+          ]
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.onRunWhenBuildErrors": {
+      "type": "string",
+      "default": "promptToLaunch",
+      "enum": [
+        "launchOld",
+        "doNotLaunch",
+        "promptToLaunch"
+      ],
+      "enumItemLabels": [
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenBuildErrors.LaunchOld%",
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenBuildErrors.DoNotLaunch%",
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenBuildErrors.PromptToLaunch%"
+      ],
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OnRunWhenBuildErrors%",
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.RunAfterBuildErrors"
+          },
+          "map": [
+            {
+              "result": "launchOld",
+              "match": 0
+            },
+            {
+              "result": "doNotLaunch",
+              "match": 1
+            },
+            {
+              "result": "promptToLaunch",
+              "match": 2
+            }
+          ]
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.useSelectedProjectAsDefaultStartupProject": {
+      "type": "boolean",
+      "default": false,
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.UseSelectedProjectAsDefaultStartupProject%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.DefaultStartupProject"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.outputVerbosity": {
+      "type": "string",
+      "default": "minimal",
+      "enum": [
+        "quiet",
+        "minimal",
+        "normal",
+        "detailed",
+        "diagnostic"
+      ],
+      "enumItemLabels": [
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity.Quiet%",
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity.Minimal%",
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity.Normal%",
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity.Detailed%",
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity.Diagnostic%"
+      ],
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity%",
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.MSBuildLoggerVerbosity"
+          },
+          "map": [
+            {
+              "result": "quiet",
+              "match": 0
+            },
+            {
+              "result": "minimal",
+              "match": 1
+            },
+            {
+              "result": "normal",
+              "match": 2
+            },
+            {
+              "result": "detailed",
+              "match": 3
+            },
+            {
+              "result": "diagnostic",
+              "match": 4
+            }
+          ]
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.outputFileVerbosity": {
+      "type": "string",
+      "default": "quiet",
+      "enum": [
+        "quiet",
+        "minimal",
+        "normal",
+        "detailed",
+        "diagnostic"
+      ],
+      "enumItemLabels": [
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity.Quiet%",
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity.Minimal%",
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity.Normal%",
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity.Detailed%",
+        "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputVerbosity.Diagnostic%"
+      ],
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.OutputFileVerbosity%",
+      "migration": {
+        "enumIntegerToString": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.MSBuildLogFileVerbosity"
+          },
+          "map": [
+            {
+              "result": "quiet",
+              "match": 0
+            },
+            {
+              "result": "minimal",
+              "match": 1
+            },
+            {
+              "result": "normal",
+              "match": 2
+            },
+            {
+              "result": "detailed",
+              "match": 3
+            },
+            {
+              "result": "diagnostic",
+              "match": 4
+            }
+          ]
+        }
+      }
+    },
+    "projectsAndSolutions.buildAndRun.lowPriorityBuild": {
+      "type": "boolean",
+      "default": false,
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun.LowPriorityBuild%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "SettingsManager",
+            "path": "BuildAndRunOptions.LowPriorityBuild"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.locations.newProjectOrSolution": {
+      "type": "string",
+      "format": "path",
+      "pathKind": "folder",
+      "default": "%USERPROFILE%\\source\\repos",
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.Locations.NewProjectOrSolution%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "VisualStudioProjectsLocation"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.locations.projectTemplates": {
+      "type": "string",
+      "format": "path",
+      "pathKind": "folder",
+      "default": "%VisualStudioDir%\\Templates\\ProjectTemplates",
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.Locations.ProjectTemplates%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "UserProjectTemplatesLocation"
+          }
+        }
+      }
+    },
+    "projectsAndSolutions.locations.projectItemTemplates": {
+      "type": "string",
+      "format": "path",
+      "pathKind": "folder",
+      "default": "%VisualStudioDir%\\Templates\\ItemTemplates",
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.Locations.ProjectItemTemplates%",
+      "migration": {
+        "pass": {
+          "input": {
+            "store": "VsUserSettingsRegistry",
+            "path": "UserItemTemplatesLocation"
+          }
+        }
+      }
+    }
+  },
+
+  "categories": {
+    "projectsAndSolutions": {
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions%",
+      "order": 0
+    },
+    "projectsAndSolutions.general": {
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.General%",
+      "order": 0,
+      "legacyOptionPageId": "6b115dd7-9cbc-461a-9562-5227bbd2d115"
+    },
+    "projectsAndSolutions.buildAndRun": {
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.BuildAndRun%",
+      "legacyOptionPageId": "a686ff7e-b765-4545-ae25-31684b4f6195"
+    },
+    "projectsAndSolutions.locations": {
+      "title": "%Microsoft.VisualStudio.Solution.ProjectsAndSolutions.Locations%",
+      "legacyOptionPageId": "5a8597fe-8871-4bad-a443-54814b84e596"
+    }
+
+  }
+}

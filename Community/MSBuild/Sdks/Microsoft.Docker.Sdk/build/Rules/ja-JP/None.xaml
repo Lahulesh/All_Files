@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<Rule Name="None" DisplayName="ファイルのプロパティ" PageTemplate="generic" Description="ファイルのプロパティ" xmlns="http://schemas.microsoft.com/build/2009/properties">
+
+  <Rule.Categories>
+    <Category Name="Misc" DisplayName="その他"/>
+    <Category Name="Advanced" DisplayName="詳細"/>
+  </Rule.Categories>
+
+  <Rule.DataSource>
+    <DataSource Persistence="ProjectFile" HasConfigurationCondition="false" ItemType="None"/>
+  </Rule.DataSource>
+
+  <StringProperty Name="FullPath" DisplayName="完全パス" ReadOnly="true" Category="Misc" Description="ファイルの場所。">
+    <StringProperty.DataSource>
+      <DataSource Persistence="Intrinsic" ItemType="None" PersistedName="FullPath"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+
+  <StringProperty Name="FileNameAndExtension" DisplayName="ファイル名" ReadOnly="true" Category="Misc" Description="ファイルの名前。">
+    <StringProperty.DataSource>
+      <DataSource Persistence="Intrinsic" ItemType="None" PersistedName="FileNameAndExtension"/>
+    </StringProperty.DataSource>
+  </StringProperty>
+
+  <BoolProperty Name="Visible" Visible="false"/>
+
+  <StringProperty Name="DependentUpon" Visible="false"/>
+  <StringProperty Name="Link" Visible="false"/>
+</Rule>

@@ -1,0 +1,19 @@
+﻿<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <Name Package="{AAB75614-2F8F-4DA6-B0A6-763C6DBB2969}" ID="1144"/>
+    <Description Package="{AAB75614-2F8F-4DA6-B0A6-763C6DBB2969}" ID="1145"/>
+    <Icon Package="{AAB75614-2F8F-4DA6-B0A6-763C6DBB2969}" ID="12"/>
+    <ProjectType>CSharp</ProjectType>
+    <TemplateGroupID>AspNetCore</TemplateGroupID>
+    <TemplateID>AspNetCore.MvcViewImports</TemplateID>
+    <AppliesTo>DotNetCoreRazor</AppliesTo>
+    <DefaultName>_ViewImports.cshtml</DefaultName>
+    <NumberOfParentCategoriesToRollUp>3</NumberOfParentCategoriesToRollUp>
+    <SortOrder>110</SortOrder>
+    <ShowByDefault>false</ShowByDefault>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem ReplaceParameters="true">_ViewImports.cshtml</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

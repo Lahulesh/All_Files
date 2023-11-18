@@ -1,0 +1,27 @@
+﻿<VSTemplateManifest Version="1.0" xmlns="http://schemas.microsoft.com/developer/vstemplatemanifest/2015">
+  <VSTemplateContainer TemplateType="Item" Locale="1033">
+    <RelativePathOnDisk>CSharp\Web\1033\AzureFunction</RelativePathOnDisk>
+    <TemplateFileName>AzureFunction.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{bf415174-6476-47f7-9853-936cffec7708}" ID="5" />
+        <Description Package="{bf415174-6476-47f7-9853-936cffec7708}" ID="5007" />
+        <Icon Package="{bf415174-6476-47f7-9853-936cffec7708}" ID="6" />
+        <ProjectType>CSharp</ProjectType>
+        <ProjectSubType>Web</ProjectSubType>
+        <TemplateGroupID>Microsoft.AzureFunctions.ProjectTemplates</TemplateGroupID>
+        <TemplateID>Microsoft.AzureFunctions.ProjectTemplate.CSharp</TemplateID>
+        <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+        <SortOrder>91</SortOrder>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>Function.cs</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <LocationField>Enabled</LocationField>
+        <PromptForSaveOnCreation>true</PromptForSaveOnCreation>
+        <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+        <ShowByDefault>false</ShowByDefault>
+        <AppliesTo>AzureFunctions</AppliesTo>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+</VSTemplateManifest>

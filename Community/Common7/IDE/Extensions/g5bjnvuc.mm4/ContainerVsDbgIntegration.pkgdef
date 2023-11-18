@@ -1,0 +1,51 @@
+﻿;-----------------------------------------------------------------------------
+; Copyright (c) Microsoft Corporation.  All rights reserved.
+;-----------------------------------------------------------------------------
+
+;
+; Registration for container debug engine
+;
+; Engine registration
+[$RootKey$\AD7Metrics\Engine\{E6A9BFF2-CA5D-44B2-8BE9-4065C380B913}]
+"CLSID"="{DAB324E9-7B35-454C-ACA8-F6BB0D5C8673}"
+@="Containers vsdbg host"
+"Name"="resource=$BaseInstallDir$\Common7\Packages\Debugger\*\vsdebugui.dll#6078"
+"AlwaysLoadLocal"=dword:00000001
+"AddressBP"=dword:00000000
+"AuthenticatedSymbolServers"=dword:00000001
+"AutoSelectPriority"=dword:00000004
+"CallStackBP"=dword:00000000
+"Exceptions"=dword:00000001
+"ExceptionConditions"=dword:00000001
+"SuppressModulesRequestOnAttach"=dword:00000001
+"ExcludeLocalSymbols"=dword:00000001
+"SetNextStatement"=dword:00000001
+"UseEngineForNonDebugLaunch"=dword:00000001
+"ClrCustomVisualizerVSHost"="{E82F32A8-074E-465A-86E5-D68A87284F61}"
+; Do not allow CoreCLR and GDB attach at the same time
+[$RootKey$\AD7Metrics\Engine\{E6A9BFF2-CA5D-44B2-8BE9-4065C380B913}\IncompatibleList]
+"gdb"="{91744D97-430F-42C1-9779-A5813EBD6AB2}"
+; Language mappings
+[$RootKey$\AD7Metrics\Engine\{E6A9BFF2-CA5D-44B2-8BE9-4065C380B913}\LanguageMappings\C#]
+"LanguageId"="{3F5162F8-07C6-11D3-9053-00C04FA302A1}"
+"Extensions"="*"
+; Exception category mappings
+[$RootKey$\AD7Metrics\Engine\{E6A9BFF2-CA5D-44B2-8BE9-4065C380B913}\ExceptionCategoryMappings]
+"CLR"="{449EC4CC-30D2-4032-9256-EE18EB41B62B}"
+"MDA"="{6ECE07A9-0EDE-45C4-8296-818D8FC401D4}"
+; Extensibility objects
+[$RootKey$\AD7Metrics\Engine\{E6A9BFF2-CA5D-44B2-8BE9-4065C380B913}\ExtensibilityObjects]
+"0"="{05335F94-A6D3-4D2B-A327-2D9E3658B5A3}"
+; Hot reload metrics
+[$RootKey$\AD7Metrics\Engine\{E6A9BFF2-CA5D-44B2-8BE9-4065C380B913}\EditAndContinueService]
+"Moniker"="Microsoft.VisualStudio.Debugger.ManagedEditAndContinueVsdbgEngineService"
+"Version"="0.1"
+"Capabilities"=dword:00000006
+;
+; Type Registrations
+;
+; Class registration for ContainerDebugAdapterHostComponent
+[$RootKey$\CLSID\{05335F94-A6D3-4D2B-A327-2D9E3658B5A3}]
+"Assembly"="Microsoft.VisualStudio.Containers.Tools.Package"
+"Class"="Microsoft.VisualStudio.Containers.Tools.Package.Debugging.ContainerDebugAdapterHostComponent"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.Containers.Tools.Package.dll"

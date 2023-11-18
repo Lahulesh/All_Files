@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+    <Metadata>
+        <Identity Id="EB5FC179-25CB-4644-A84A-DED3D3F8590B" Version="17.8.352.38654" Language="en-US" Publisher="Microsoft" />
+        <Icon>WebConfiguration.png</Icon>
+        <PreviewImage>WebConfigurationPreview.png</PreviewImage>
+        <DisplayName>Microsoft ASP.NET Web Frameworks and Tools</DisplayName>
+        <Description xml:space="preserve">Provides the latest web frameworks and tools for ASP.NET.</Description>
+        <Tags>Visual Studio Web Frameworks and Tools</Tags>
+    </Metadata>
+    <Installation InstalledByMsi="true" AllUsers="true" SystemComponent="true">
+      <InstallationTarget Id="Microsoft.VisualStudio.IntegratedShell" Version="[15.0,]" />
+    </Installation>
+    <Assets>
+      <Asset Type="Microsoft.VisualStudio.Assembly" Path="Microsoft.VisualStudio.Web.Mvc.5.0.dll" />
+    </Assets>
+</PackageManifest>

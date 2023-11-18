@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+ This file defines icon ID's and which image files they correspond to. This file is used in 
+ conjunction with the CustomMoniker.vsct file to provide the necessary data to display your 
+ custom moniker in menu buttons, toolbars, etc.
+-->
+<ImageManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
+  <Symbols>
+    <String Name="Resources" Value="/Microsoft.ML.ModelBuilder;Component/Resources" />
+    <Guid Name="CustomMoniker" Value="{7f5c38b0-f0bc-4551-a9a8-b4f467cc4670}" />
+    <ID Name="Bucket" Value="1" />
+    <ID Name="ValuedHouse" Value="2" />
+    <ID Name="Image" Value="3" />
+    <ID Name="VerticalBarChart" Value="4" />
+    <ID Name="Cluster" Value="5"/>
+    <ID Name="Forecast" Value="6"/>
+    <ID Name="ObjectDetection" Value="7"/>
+    <ID Name="AnomalyDetection" Value="8"/>
+    <ID Name="TrainInAzure" Value="9"/>
+    <ID Name="DeployModel" Value="10"/>
+    <ID Name="ImproveModel" Value="11"/>
+    <ID Name="ModelBuilderFileIcon" Value="12"/>
+    <ID Name="MLServiceIcon" Value="13"/>
+    <ID Name="TextClassification" Value="14"/>
+    <ID Name ="SentenceSimilarity" Value ="15"/>
+  </Symbols>
+  <Images>
+    <Image Guid="$(CustomMoniker)" ID="$(Bucket)">
+      <Source Uri="$(Resources)/Cards/data-classification.xaml"/>
+    </Image>
+    <Image Guid="$(CustomMoniker)" ID="$(ValuedHouse)">
+      <Source Uri="$(Resources)/Cards/price-prediction.xaml"/>
+    </Image>
+    <Image Guid="$(CustomMoniker)" ID="$(Image)">
+      <Source Uri="$(Resources)/Cards/image-classification.xaml"/>
+    </Image>
+    <Image Guid="$(CustomMoniker)" ID="$(VerticalBarChart)">
+      <Source Uri="$(Resources)/Cards/recommendation.xaml"/>
+    </Image>
+    <Image Guid="$(CustomMoniker)" ID="$(Cluster)">
+      <Source Uri="$(Resources)/Cards/clustering.xaml"/>
+    </Image>
+    <Image Guid="$(CustomMoniker)" ID="$(Forecast)">
+      <Source Uri="$(Resources)/Cards/forecasting.xaml"/>
+    </Image>
+    <Image Guid="$(CustomMoniker)" ID="$(ObjectDetection)">
+      <Source Uri="$(Resources)/Cards/object-detection.xaml"/>
+    </Image>
+    <Image Guid="$(CustomMoniker)" ID="$(AnomalyDetection)">
+      <Source Uri="$(Resources)/Cards/anomaly-detection.xaml"/>
+    </Image>
+    <Image Guid="$(CustomMoniker)" ID="$(TrainInAzure)">
+      <Source Uri="$(Resources)/Images/train-in-azure.xaml"/>
+    </Image>
+    <Image Guid="$(CustomMoniker)" ID="$(DeployModel)">
+      <Source Uri="$(Resources)/Images/deploy-your-model.xaml"/>
+    </Image>
+    <Image Guid="$(CustomMoniker)" ID="$(ImproveModel)">
+      <Source Uri="$(Resources)/Images/increase-trainin-time.xaml"/>
+    </Image>
+    <Image Guid="$(CustomMoniker)" ID="$(ModelBuilderFileIcon)">
+      <Source Uri="$(Resources)/ModelBuilderFileIcon.png" />
+    </Image>
+    <Image Guid="$(CustomMoniker)" ID="$(MLServiceIcon)">
+      <Source Uri="$(Resources)/mlServiceIcon.png" />
+    </Image>
+      <Image Guid="$(CustomMoniker)" ID="$(TextClassification)">
+      <Source Uri="$(Resources)/Cards/text-classification.xaml" />
+    </Image>
+      <Image Guid="$(CustomMoniker)" ID="$(SentenceSimilarity)">
+          <Source Uri="$(Resources)/Cards/sentence-similarity.xaml" />
+      </Image>
+  </Images>
+  <ImageLists />
+</ImageManifest>

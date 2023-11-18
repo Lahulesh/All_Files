@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ImageManifest
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
+  <Symbols>
+    <Guid Name="ExtensionsMonikersGuid" Value="{EF8D58DB-45C3-40B1-8731-9538118FA83A}" />
+    <ID Name="GenericContainerId" Value="1" />
+    <String Name="Resources" Value="/Microsoft.VisualStudio.Containers.Tools.Extensions.Package;Component/Resources" />
+  </Symbols>
+  <Images>
+    <Image Guid="$(ExtensionsMonikersGuid)" ID="$(GenericContainerId)">
+      <Source Uri="$(Resources)/GenericContainer_16x.xaml" />
+    </Image>
+  </Images>
+</ImageManifest>

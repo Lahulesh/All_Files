@@ -1,0 +1,51 @@
+﻿;-----------------------------------------------------------------------------
+; Copyright (c) Microsoft Corporation.  All rights reserved.
+;-----------------------------------------------------------------------------
+
+;
+; Registration for docker debug engine
+;
+; Engine registration
+[$RootKey$\AD7Metrics\Engine\{97D6C1BA-71FD-4267-8F38-A25257581B77}]
+"CLSID"="{DAB324E9-7B35-454C-ACA8-F6BB0D5C8673}"
+@="Docker vsdbg host"
+"Name"="resource=$BaseInstallDir$\Common7\Packages\Debugger\*\vsdebugui.dll#6078"
+"AlwaysLoadLocal"=dword:00000001
+"AddressBP"=dword:00000000
+"AuthenticatedSymbolServers"=dword:00000001
+"AutoSelectPriority"=dword:00000004
+"CallStackBP"=dword:00000000
+"Exceptions"=dword:00000001
+"ExceptionConditions"=dword:00000001
+"SuppressModulesRequestOnAttach"=dword:00000001
+"ExcludeLocalSymbols"=dword:00000001
+"SetNextStatement"=dword:00000001
+"UseEngineForNonDebugLaunch"=dword:00000001
+"ClrCustomVisualizerVSHost"="{E82F32A8-074E-465A-86E5-D68A87284F61}"
+; Do not allow CoreCLR and GDB attach at the same time
+[$RootKey$\AD7Metrics\Engine\{97D6C1BA-71FD-4267-8F38-A25257581B77}\IncompatibleList]
+"gdb"="{91744D97-430F-42C1-9779-A5813EBD6AB2}"
+; Language mappings
+[$RootKey$\AD7Metrics\Engine\{97D6C1BA-71FD-4267-8F38-A25257581B77}\LanguageMappings\C#]
+"LanguageId"="{3F5162F8-07C6-11D3-9053-00C04FA302A1}"
+"Extensions"="*"
+; Exception category mappings
+[$RootKey$\AD7Metrics\Engine\{97D6C1BA-71FD-4267-8F38-A25257581B77}\ExceptionCategoryMappings]
+"CLR"="{449EC4CC-30D2-4032-9256-EE18EB41B62B}"
+"MDA"="{6ECE07A9-0EDE-45C4-8296-818D8FC401D4}"
+; Extensibility objects
+[$RootKey$\AD7Metrics\Engine\{97D6C1BA-71FD-4267-8F38-A25257581B77}\ExtensibilityObjects]
+"0"="{2C1611B9-1B1B-4480-8881-156FDA6A7C6A}"
+; Hot reload metrics
+[$RootKey$\AD7Metrics\Engine\{97D6C1BA-71FD-4267-8F38-A25257581B77}\EditAndContinueService]
+"Moniker"="Microsoft.VisualStudio.Debugger.ManagedEditAndContinueVsdbgEngineService"
+"Version"="0.1"
+"Capabilities"=dword:00000006
+;
+; Type Registrations
+;
+; Class registration for DockerDebugAdapterHostComponent
+[$RootKey$\CLSID\{2C1611B9-1B1B-4480-8881-156FDA6A7C6A}]
+"Assembly"="Microsoft.VisualStudio.Docker.DotNetCore"
+"Class"="Microsoft.VisualStudio.Docker.DotNetCore.DockerDebugAdapterHostComponent"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.Docker.DotNetCore.dll"

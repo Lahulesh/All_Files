@@ -1,0 +1,80 @@
+﻿<VSTemplateManifest Version="1.0" xmlns="http://schemas.microsoft.com/developer/vstemplatemanifest/2015">
+  <VSTemplateContainer TemplateType="ProjectGroup" Locale="1033">
+    <RelativePathOnDisk>CSharp\Cloud\1033\WebJobContinuousSdkTemplate</RelativePathOnDisk>
+    <TemplateFileName>WebJobContinuousSdkTemplate.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{1AD387FC-B1E8-4023-91FE-F22260B661DB}" ID="5005" />
+        <Description Package="{1AD387FC-B1E8-4023-91FE-F22260B661DB}" ID="5006" />
+        <Icon Package="{1AD387FC-B1E8-4023-91FE-F22260B661DB}" ID="2000" />
+        <TemplateID>Microsoft.Cloud.CSharp.Sdk.WebJob.Continuous</TemplateID>
+        <ProjectType>CSharp</ProjectType>
+        <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+        <SortOrder>600</SortOrder>
+        <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+        <CreateInPlace>true</CreateInPlace>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>WebJob</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <PromptForSaveOnCreation>true</PromptForSaveOnCreation>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="ProjectGroup" Locale="1033">
+    <RelativePathOnDisk>CSharp\Cloud\1033\WebJobTriggeredSdkTemplate</RelativePathOnDisk>
+    <TemplateFileName>WebJobTriggeredSdkTemplate.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <TemplateID>Microsoft.Cloud.CSharp.Sdk.WebJob.Triggered</TemplateID>
+        <Hidden>true</Hidden>
+        <ProjectType>CSharp</ProjectType>
+        <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+        <SortOrder>605</SortOrder>
+        <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>WebJob</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <CreateInPlace>false</CreateInPlace>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="ProjectGroup" Locale="1033">
+    <RelativePathOnDisk>VisualBasic\Cloud\1033\WebJobContinuousSdkTemplate</RelativePathOnDisk>
+    <TemplateFileName>WebJobContinuousSdkTemplate.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name Package="{1AD387FC-B1E8-4023-91FE-F22260B661DB}" ID="5005" />
+        <Description Package="{1AD387FC-B1E8-4023-91FE-F22260B661DB}" ID="5006" />
+        <Icon Package="{1AD387FC-B1E8-4023-91FE-F22260B661DB}" ID="2000" />
+        <ProjectType>VisualBasic</ProjectType>
+        <TemplateID>Microsoft.Cloud.VisualBasic.Sdk.WebJob.Continuous</TemplateID>
+        <SortOrder>600</SortOrder>
+        <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+        <CreateNewFolder>true</CreateNewFolder>
+        <CreateInPlace>true</CreateInPlace>
+        <DefaultName>WebJob</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <PromptForSaveOnCreation>true</PromptForSaveOnCreation>
+        <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="ProjectGroup" Locale="1033">
+    <RelativePathOnDisk>VisualBasic\Cloud\1033\WebJobTriggeredSdkTemplate</RelativePathOnDisk>
+    <TemplateFileName>WebJobTriggeredSdkTemplate.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <ProjectType>VisualBasic</ProjectType>
+        <TemplateID>Microsoft.Cloud.VisualBasic.Sdk.WebJob.Triggered</TemplateID>
+        <Hidden>true</Hidden>
+        <SortOrder>605</SortOrder>
+        <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>WebJob</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+        <CreateInPlace>false</CreateInPlace>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+</VSTemplateManifest>

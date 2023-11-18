@@ -1,0 +1,21 @@
+﻿[$RootKey$\Packages\{7cee4f20-6492-444a-a998-143dbd27bdcf}]
+@="#1"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.VisualStudio.EdgeDevTools.Package.EdgeDevToolsPackage"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.EdgeDevTools.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+[$RootKey$\Menus]
+"{7cee4f20-6492-444a-a998-143dbd27bdcf}"=", Menus.ctmenu, 1"
+
+[$RootKey$\ToolWindows\{9c3373f3-305f-4aa7-9437-33e8ee24513f}]
+@="{7cee4f20-6492-444a-a998-143dbd27bdcf}"
+"Name"="Microsoft.VisualStudio.EdgeDevTools.ToolWindow.EdgeDevToolsToolWindow"
+"Style"="Tabbed"
+
+[$RootKey$\ToolWindows\{9c3373f3-305f-4aa7-9437-33e8ee24513f}\Visibility]
+"{b1eb4f42-aa94-4d04-a152-21479f8a04ba}"=dword:00000000
+
+[$RootKey$\UIContextRules\{b1eb4f42-aa94-4d04-a152-21479f8a04ba}] 
+"Expression"="IsEdgeDevToolsEnabled" 
+"IsEdgeDevToolsEnabled"="FeatureFlag:WebTools.BrowserLink.EdgeDevToolsEnabled" 

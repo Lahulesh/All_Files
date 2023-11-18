@@ -1,0 +1,8 @@
+﻿{
+  "host": "desktopClr.x64",
+  "singleDomainLoaderOptimization": true,
+  "entryPoint": {
+    "assemblyPath": "Microsoft.ML.ModelBuilder.AutoMLService.dll",
+    "fullClassName": "Microsoft.ML.ModelBuilder.AutoMLService.ServiceFactory.ModelInferenceService"
+  }
+}

@@ -1,0 +1,56 @@
+﻿[$RootKey$\Packages\{bf415174-6476-47f7-9853-936cffec7708}]
+@="#1"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.WebTools.Azure.Functions.FunctionsPackage"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.Azure.Functions.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+[$RootKey$\AutoLoadPackages\{1E5670C4-D270-4A0E-BD2B-D59EADD375EC}]
+"{bf415174-6476-47f7-9853-936cffec7708}"=dword:00000002
+
+[$RootKey$\UIContextRules\{1E5670C4-D270-4A0E-BD2B-D59EADD375EC}]
+@="Azure Functions Capability"
+"Expression"="AzureFunctionCapability"
+"AzureFunctionCapability"="ActiveProjectCapability:AzureFunctions"
+
+[$RootKey$\Menus]
+"{bf415174-6476-47f7-9853-936cffec7708}"=", Menus.ctmenu, 1"
+
+[$RootKey$\ShellFileAssociations\.csx]
+"DefaultIconMoniker"="KnownMonikers.CSFileNode"
+[$RootKey$\ShellFileAssociations\.fsx]
+"DefaultIconMoniker"="KnownMonikers.FSScript"
+[$RootKey$\ShellFileAssociations\.jar]
+"DefaultIconMoniker"="KnownMonikers.JARFile"
+[$RootKey$\ShellFileAssociations\.java]
+"DefaultIconMoniker"="KnownMonikers.JavaSource"
+[$RootKey$\ShellFileAssociations\.php]
+"DefaultIconMoniker"="KnownMonikers.PHPFile"
+[$RootKey$\ShellFileAssociations\.py]
+"DefaultIconMoniker"="KnownMonikers.PYFileNode"
+[$RootKey$\ShellFileAssociations\.rb]
+"DefaultIconMoniker"="KnownMonikers.RBFileNode"
+[$RootKey$\ShellFileAssociations\.bat]
+"DefaultIconMoniker"="KnownMonikers.Console"
+[$RootKey$\ShellFileAssociations\.cmd]
+"DefaultIconMoniker"="KnownMonikers.Console"
+[$RootKey$\ShellFileAssociations\.ts]
+"DefaultIconMoniker"="KnownMonikers.TSFileNode"
+
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{C9A20B4F-77D5-4709-9D4D-15F11456359B}]
+"name"="Microsoft.WebTools.Azure.Functions"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="17.0.0.0"
+"codeBase"="$PackageFolder$\Microsoft.WebTools.Azure.Functions.dll"
+
+[$RootKey$\ToolsOptionsPages\Projects\Azure Functions]
+"Package"="{bf415174-6476-47f7-9853-936cffec7708}"
+"Page"="{1167F9EF-F8D6-4E65-A3F3-1B997D0D550F}"
+"Keywords"="#103"
+@="#100"
+
+[$RootKey$\AutomationProperties\Projects\ASP.NET Core]
+@="#100"
+"Package"="{bf415174-6476-47f7-9853-936cffec7708}"
+"Name"="Azure.Functions.General"

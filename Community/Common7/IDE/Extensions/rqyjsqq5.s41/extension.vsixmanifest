@@ -1,0 +1,41 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="48FAED45-39EF-4C17-AC18-B3875ADAD266" Version="17.2.20230926.2" Language="en-US" Publisher="Microsoft Corporation" />
+    <!-- Please refer the Release OneNote to make any re-branding changes below -->
+    <DisplayName>Microsoft Visual Studio Tools for Containers</DisplayName>
+    <Description xml:space="preserve">Develop, run, validate your ASP.NET Core applications in the target environment. F5 your application directly into a container with debugging, or CTRL + F5 to edit &amp; refresh your app without having to rebuild the container.</Description>
+    <MoreInfo>https://go.microsoft.com/fwlink/?LinkID=733441</MoreInfo>
+    <PackageId>Microsoft.VisualStudio.Package.DockerTools</PackageId>
+  </Metadata>
+  <Installation AllUsers="true" SystemComponent="true">
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Community">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Professional">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Version="[17.0,18.0)" Id="Microsoft.VisualStudio.Enterprise">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.6,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.Docker.Compose.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.Docker.DotNetCore.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.Docker.DotNetFramework.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Microsoft.VisualStudio.Docker.LanguageService.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Docker.Compose.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Docker.DotNetCore.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Docker.DotNetFramework.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Docker.LanguageService.dll" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="Microsoft.VisualStudio.Docker.Shared.dll" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="DockerVsDbgIntegration.pkgdef" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.ComponentGroup.WebToolsExtensions" Version="[17.0,18.0)" DisplayName="Microsoft Web Tools" />
+    <Prerequisite Id="Microsoft.VisualStudio.VC.Ide.MDD" Version="[17.0,18.0)" DisplayName="Mobile Development Debugger" />
+    <Prerequisite Id="Microsoft.VisualStudio.Debugger.OneCore.x64" Version="[17.0,18.0)" DisplayName="One Core Debugger" />
+  </Prerequisites>
+</PackageManifest>

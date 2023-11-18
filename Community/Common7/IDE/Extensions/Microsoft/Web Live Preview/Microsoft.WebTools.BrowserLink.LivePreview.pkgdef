@@ -1,0 +1,72 @@
+﻿[$RootKey$\Packages\{e60490a8-ca2f-45c8-96b8-4e4f05cd1762}]
+@="Web Live Preview"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"Class"="Microsoft.WebTools.BrowserLink.LivePreview.Package.LivePreviewPackage"
+"CodeBase"="$PackageFolder$\Microsoft.WebTools.BrowserLink.LivePreview.dll"
+"AllowsBackgroundLoad"=dword:00000001
+
+[$RootKey$\Editors\{530b96d7-b823-4f3f-8178-2645b480838b}]
+@="LivePreviewEditorFactory"
+"DisplayName"="#2"
+"Package"="{e60490a8-ca2f-45c8-96b8-4e4f05cd1762}"
+"EditorTrustLevel"=dword:00000001
+"CommonPhysicalViewAttributes"=dword:00000000
+"DeferUntilIntellisenseIsReady"=dword:00000000
+
+[$RootKey$\Editors\{530b96d7-b823-4f3f-8178-2645b480838b}\LogicalViews]
+"{7651a703-06e5-11d1-8ebd-00a0c90f26ea}"=""
+
+// This UIContext is used by Dev17 builds of Browser Link to 
+// show the Design/Split buttons. If Web Live Preview is somehow
+// not installed, this won't be true and those buttons won't show.
+// Otherwise, if installed, it is always enabled.
+[$RootKey$\UIContextRules\{d9bc8c7e-cb6e-4428-ac17-2db913577525}]
+@="Web Live Preview Feature is Enabled"
+"Expression"="true"
+
+[$RootKey$\UIContextRules\{549f949d-fa62-433f-9002-86c02acd4020}]
+"Expression"="IsWebLivePreviewInRazorEnabled"
+"IsWebLivePreviewInRazorEnabled"="FeatureFlag:WebTools.BrowserLink.WebLivePreviewInRazorEnabled"
+
+[$RootKey$\UIContextRules\{A3A931D2-1AE5-4A5F-B618-1C8C9F43BBA9}]
+@="Show Web Live Preview Commands"
+"Expression"="IsAspxFileSelected | ((IsCshtmlFileSelected | IsVbhtmlFileSelected) & !IsLayoutFile & !IsAspNetCore)"
+"IsAspxFileSelected"="HierSingleSelectionName:.aspx$"
+"IsCshtmlFileSelected"="HierSingleSelectionName:.cshtml$"
+"IsVbhtmlFileSelected"="HierSingleSelectionName:.vbhtml$"
+// See PkdDefTests.cs for IsLayoutFile RegEx details
+"IsLayoutFile"="HierSingleSelectionName:(^_|[\\/]_)[^\\/]+$"
+"IsAspNetCore"="ActiveProjectCapability:AspNetCore"
+
+// UI Context in which ViewSwitch commands (e.g. View Designer (Split)) should be shown
+// { 0x62aea38a, 0x7eb2, 0x42e3, { 0x90, 0x70, 0x1d, 0xc1, 0xd8, 0x62, 0xc8, 0x43 } };
+[$RootKey$\UIContextRules\{62AEA38A-7EB2-42E3-9070-1DC1D862C843}]
+@="Show Web Live Preview View Switch Commands"
+"Expression"="IsAspxFileSelected | IsAscxFileSelected | IsMasterFileSelected | IsHtmlFileSelected"
+"IsAspxFileSelected"="HierSingleSelectionName:.aspx$"
+"IsAscxFileSelected"="HierSingleSelectionName:.ascx"
+"IsMasterFileSelected"="HierSingleSelectionName:.master$"
+"IsHtmlFileSelected"="HierSingleSelectionName:.html?$"
+
+[$RootKey$\Menus]
+"{e60490a8-ca2f-45c8-96b8-4e4f05cd1762}"=", Menus.ctmenu, 1"
+
+[$RootKey$\ToolsOptionsPages\Web Live Preview]
+@="#1000"
+"Package"="{e60490a8-ca2f-45c8-96b8-4e4f05cd1762}"
+[$RootKey$\ToolsOptionsPages\Web Live Preview\General]
+@="#1002"
+"Package"="{e60490a8-ca2f-45c8-96b8-4e4f05cd1762}"
+"Page"="{F8643B71-EB16-46CA-ACC3-612F63A35EB0}"
+[$RootKey$\AutomationProperties\Web Live Preview]
+"Package"="{e60490a8-ca2f-45c8-96b8-4e4f05cd1762}"
+[$RootKey$\AutomationProperties\Web Live Preview\General]
+"Package"="{e60490a8-ca2f-45c8-96b8-4e4f05cd1762}"
+"Name"="Web Live Preview.General"
+
+[$RootKey$\FeatureFlags\WebLivePreview\IsTemplateEditingEnabled]
+"Description"="Enable template editing in the Web Live Preview designer."
+"Value"=dword:00000000
+"Title"="WebLivePreview Template Editing"
+"PreviewPaneChannels"="IntPreview, int.main"
+"PackageGuid"="e60490a8-ca2f-45c8-96b8-4e4f05cd1762"

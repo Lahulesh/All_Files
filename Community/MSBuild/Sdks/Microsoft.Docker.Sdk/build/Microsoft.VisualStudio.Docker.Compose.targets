@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+***********************************************************************************************
+Microsoft.VisualStudio.Docker.Compose.targets
+
+WARNING:  DO NOT MODIFY this file unless you are knowledgeable about MSBuild and have
+          created a backup copy.  Incorrect changes to this file will make it
+          impossible to load or build your projects from the command-line or the IDE.
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+***********************************************************************************************
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!--
+  ***********************************************************************************************
+
+  Docker Compose Project Properties
+
+  ***********************************************************************************************
+  -->
+
+  <PropertyGroup>
+    <!-- Turn off capabilities from Microsoft.Common.CurrentVersions.targets and explicitly include the ones we want. -->
+    <DefineCommonItemSchemas>false</DefineCommonItemSchemas>
+    <DefineCommonCapabilities>false</DefineCommonCapabilities>
+    <DefineCommonReferenceSchemas>false</DefineCommonReferenceSchemas>
+
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+
+    <!-- Set true to not apply the VS default image labels. -->
+    <SkipDefaultImageLabels Condition="'$(SkipDefaultImageLabels)' == ''">false</SkipDefaultImageLabels>
+  </PropertyGroup>
+
+  <!-- Project capabilities -->
+  <ItemGroup>
+    <!--Project is based on the Project System Extensibility SDK-->
+    <ProjectCapability Include="CPS" />
+    <ProjectCapability Include="DockerCompose" />
+    <!--Indicates that the user is allowed to add arbitrary files to their project.-->
+    <ProjectCapability Include="UserSourceItems" />
+    <!-- Indicates that the project file can include files using MSBuild file globbing patterns. -->
+    <ProjectCapability Include="UseFileGlobs" />
+    <!-- Allows the project file to be edited without reloading and reloads automatically when changes are made. -->
+    <ProjectCapability Include="OpenProjectFile" />
+    <ProjectCapability Include="HandlesOwnReload" />
+  </ItemGroup>
+
+  <!-- Describes the rules files used by CPS to represent the project -->
+  <PropertyGroup>
+    <RulesDirectory>$(MSBuildThisFileDirectory)Rules\$(LangName)</RulesDirectory>
+    <RulesDirectory Condition=" '$(LangName)' == '' OR !Exists($(RulesDirectory)) ">$(MSBuildThisFileDirectory)Rules</RulesDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PropertyPageSchema Include="$(RulesDirectory)\BrowseGeneral.xaml">
+      <Context>BrowseObject</Context>
+    </PropertyPageSchema>
+    <PropertyPageSchema Include="$(RulesDirectory)\DebuggerGeneral.xaml">
+      <Context>Project</Context>
+    </PropertyPageSchema>
+    <PropertyPageSchema Include="$(RulesDirectory)\Folder.xaml">
+      <Context>File;BrowseObject</Context>
+    </PropertyPageSchema>
+    <PropertyPageSchema Include="$(RulesDirectory)\General.xaml">
+      <Context>Project</Context>
+    </PropertyPageSchema>
+    <PropertyPageSchema Include="$(RulesDirectory)\None.xaml">
+      <Context>File;BrowseObject</Context>
+    </PropertyPageSchema>
+    <PropertyPageSchema Include="$(RulesDirectory)\ProjectDebugger.xaml">
+      <Context>Project</Context>
+    </PropertyPageSchema>
+    <PropertyPageSchema Include="$(RulesDirectory)\ProjectItemsSchema.xaml">
+      <Context>Project</Context>
+    </PropertyPageSchema>
+  </ItemGroup>
+
+  <!--
+  ***********************************************************************************************
+
+  Docker Compose Project Targets
+
+  ***********************************************************************************************
+  -->
+
+  <UsingTask TaskName="CheckProjectVersion" AssemblyFile="$(DockerBuildTasksAssembly)" />
+  <UsingTask TaskName="CleanComposeProjectCache" AssemblyFile="$(DockerBuildTasksAssembly)" />
+  <UsingTask TaskName="CleanWorkspace" AssemblyFile="$(DockerBuildTasksAssembly)" />
+  <UsingTask TaskName="ComposeDownContainers" AssemblyFile="$(DockerBuildTasksAssembly)" />
+  <UsingTask TaskName="CreateComposeVsGeneratedFiles" AssemblyFile="$(DockerBuildTasksAssembly)" />
+  <UsingTask TaskName="ResolveVsDbgPath" AssemblyFile="$(DockerBuildTasksAssembly)" />
+  <UsingTask TaskName="ResolveMsVsMonPath" AssemblyFile="$(DockerBuildTasksAssembly)" />
+  <UsingTask TaskName="ResolveOneCoreMsVsMonPath" AssemblyFile="$(DockerBuildTasksAssembly)" />
+  <UsingTask TaskName="GetServiceReferences" AssemblyFile="$(DockerBuildTasksAssembly)" />
+  <UsingTask TaskName="PrepareForBuild" AssemblyFile="$(DockerBuildTasksAssembly)" />
+  <UsingTask TaskName="PrepareForLaunch" AssemblyFile="$(DockerBuildTasksAssembly)" />
+  <UsingTask TaskName="ResolveTargetOS" AssemblyFile="$(DockerBuildTasksAssembly)" />
+
+  <PropertyGroup>
+    <BuildDependsOn>
+      DockerCheckProjectVersion;
+      DockerSetDevelopmentMode;
+      DockerResolveTargetOS;
+      DockerGetServiceReferences;
+      DockerResolveAppType;
+      DockerResolveTargetFramework;
+      DockerResolveTargetFrameworkVersion;
+      DockerCreateComposeVsGeneratedFiles;
+      DockerPrepareForBuild;
+      DockerBuildServiceReferences;
+      $(BuildDependsOn);
+      DockerUpdateComposeVsGeneratedFiles;
+      DockerComposeProjectBuild;
+      DockerPrepareForLaunch;
+    </BuildDependsOn>
+    <CleanDependsOn>
+      DockerCheckProjectVersion;
+      DockerSetDevelopmentMode;
+      DockerResolveTargetOS;
+      DockerGetServiceReferences;
+      DockerResolveAppType;
+      DockerResolveTargetFramework;
+      DockerResolveTargetFrameworkVersion;
+      DockerCreateComposeVsGeneratedFiles;
+      DockerCleanWorkspace;
+      DockerCleanComposeProjectCache;
+      $(CleanDependsOn);
+    </CleanDependsOn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DockerComposeProjectPath>$(MSBuildProjectFullPath)</DockerComposeProjectPath>
+    <ErrorLogFilePath Condition="$(ErrorLogFilePath) == ''">$(DockerIntermediateOutputPath)\launch.sem</ErrorLogFilePath>
+  </PropertyGroup>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerCheckProjectVersion
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerCheckProjectVersion">
+    <CheckProjectVersion ProjectVersion="$(ProjectVersion)" />
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerSetDevelopmentMode
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerSetDevelopmentMode">
+    <PropertyGroup Condition=" '$(DockerDevelopmentMode)' == '' ">
+      <DockerDevelopmentMode Condition=" '$(Configuration)' == 'Debug' ">Fast</DockerDevelopmentMode>
+      <DockerDevelopmentMode Condition=" '$(DockerDevelopmentMode)' == '' ">Regular</DockerDevelopmentMode>
+    </PropertyGroup>
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerResolveTargetOS
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerResolveTargetOS">
+    <ResolveTargetOS DockerComposeProjectPath="$(DockerComposeProjectPath)"
+                     DockerComposeBaseFilePath="$(DockerComposeBaseFilePath)"
+                     DockerComposeProjectName="$(DockerComposeProjectName)"
+                     DockerComposeEnvFilePath="$(DockerComposeEnvFilePath)"
+                     AdditionalComposeFilePaths ="$(AdditionalComposeFilePaths)"
+                     ActiveDebugProfile="$(ActiveDebugProfile)"
+                     DockerDevelopmentMode="$(DockerDevelopmentMode)"
+                     TargetOS="$(DockerTargetOS)"
+                     ErrorLogFilePath="$(ErrorLogFilePath)"/>
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerGetServiceReferences
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerGetServiceReferences"
+          Condition=" Exists('$(SolutionPath)') "
+          BeforeTargets="AssignProjectConfiguration">
+    <ItemGroup>
+      <DockerServiceReferences Remove="*" />
+    </ItemGroup>
+    <GetServiceReferences DockerComposeProjectPath="$(DockerComposeProjectPath)"
+                          DockerComposeBaseFilePath="$(DockerComposeBaseFilePath)"
+                          DockerComposeProjectName="$(DockerComposeProjectName)"
+                          DockerComposeEnvFilePath="$(DockerComposeEnvFilePath)"
+                          AdditionalComposeFilePaths ="$(AdditionalComposeFilePaths)"
+                          ActiveDebugProfile="$(ActiveDebugProfile)"
+                          DockerDevelopmentMode="$(DockerDevelopmentMode)"
+                          SolutionPath="$(SolutionPath)"
+                          ErrorLogFilePath="$(ErrorLogFilePath)"
+                          DockerComposeProjectsToIgnore="$(DockerComposeProjectsToIgnore)">
+      <Output TaskParameter="ServiceReferences" ItemName="DockerServiceReferences" />
+    </GetServiceReferences>
+
+    <ItemGroup>
+      <ProjectReference Include="@(DockerServiceReferences)" />
+    </ItemGroup>
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerResolveAppType
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerResolveAppType" Condition=" '@(DockerServiceReferences)' != '' ">
+    <MSBuild Projects="@(DockerServiceReferences)"
+             Targets="DockerResolveAppType"
+             Properties="Configuration=$(Configuration);DockerComposeProjectPath=$(DockerComposeProjectPath);DockerComposeServiceNames=%(DockerServiceReferences.ServiceNames)">
+    </MSBuild>
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerUpdateComposeVsGeneratedFiles
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerUpdateComposeVsGeneratedFiles" Condition=" '@(DockerServiceReferences)' != '' and '$(DockerCleanedComposeProjectCache)' != 'True' ">
+    <MSBuild Projects="@(DockerServiceReferences)"
+             Targets="DockerUpdateComposeVsGeneratedFiles"
+             Properties="Configuration=$(Configuration);DockerComposeProjectPath=$(DockerComposeProjectPath);DockerDevelopmentMode=$(DockerDevelopmentMode);DockerTargetOS=$(DockerTargetOS);DockerComposeServiceNames=%(DockerServiceReferences.ServiceNames)">
+    </MSBuild>
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\obj\Docker\docker-compose.vs.debug.partial.g.yml;$(MSBuildProjectDirectory)\obj\Docker\docker-compose.vs.release.partial.g.yml"
+          DestinationFiles="$(MSBuildProjectDirectory)\obj\Docker\docker-compose.vs.debug.g.yml;$(MSBuildProjectDirectory)\obj\Docker\docker-compose.vs.release.g.yml"
+          Retries="5" />
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerResolveTargetFramework
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerResolveTargetFramework" Condition=" '@(DockerServiceReferences)' != '' ">
+    <MSBuild Projects="@(DockerServiceReferences)"
+             Targets="DockerResolveTargetFramework"
+             Properties="Configuration=$(Configuration));DockerComposeProjectPath=$(DockerComposeProjectPath);DockerComposeServiceNames=%(DockerServiceReferences.ServiceNames);">
+    </MSBuild>
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerResolveTargetFrameworkVersion
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerResolveTargetFrameworkVersion" Condition=" '@(DockerServiceReferences)' != '' ">
+    <MSBuild Projects="@(DockerServiceReferences)"
+             Targets="DockerResolveTargetFrameworkVersion"
+             Properties="Configuration=$(Configuration));DockerComposeProjectPath=$(DockerComposeProjectPath);DockerComposeServiceNames=%(DockerServiceReferences.ServiceNames);">
+    </MSBuild>
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerCreateComposeVsGeneratedFiles
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerCreateComposeVsGeneratedFiles" Condition=" '@(DockerServiceReferences)' != '' and '$(DockerCleanedComposeProjectCache)' != 'True' ">
+    <ResolveVsDbgPath DockerComposeProjectPath="$(DockerComposeProjectPath)"
+                      DockerComposeBaseFilePath="$(DockerComposeBaseFilePath)"
+                      DockerComposeProjectName="$(DockerComposeProjectName)"
+                      DockerComposeEnvFilePath="$(DockerComposeEnvFilePath)"
+                      AdditionalComposeFilePaths ="$(AdditionalComposeFilePaths)"
+                      ActiveDebugProfile="$(ActiveDebugProfile)"
+                      DockerDevelopmentMode="$(DockerDevelopmentMode)"
+                      EnsureBitsPresent="false"
+                      IncludeArm64Bits="$(DockerComposeIncludeArm64Debuggers)"
+                      ErrorLogFilePath="$(ErrorLogFilePath)"
+                      Condition="'$(DockerTargetOS)' == 'Linux'">
+      <Output TaskParameter="VsDbgPath" PropertyName="DockerVsDbgPath" />
+    </ResolveVsDbgPath>
+
+    <ResolveMsVsMonPath DockerComposeProjectPath="$(DockerComposeProjectPath)"
+                        DockerComposeBaseFilePath="$(DockerComposeBaseFilePath)"
+                        DockerComposeProjectName="$(DockerComposeProjectName)"
+                        DockerComposeEnvFilePath="$(DockerComposeEnvFilePath)"
+                        AdditionalComposeFilePaths ="$(AdditionalComposeFilePaths)"
+                        ActiveDebugProfile="$(ActiveDebugProfile)"
+                        DockerDevelopmentMode="$(DockerDevelopmentMode)"
+                        SourceDirectory="$(DevEnvDir)Remote Debugger"
+                        ErrorLogFilePath="$(ErrorLogFilePath)">
+      <Output TaskParameter="MsVsMonPath" PropertyName="DockerMsVsMonPath" />
+    </ResolveMsVsMonPath>
+
+    <ResolveOneCoreMsVsMonPath DockerComposeProjectPath="$(DockerComposeProjectPath)"
+                               DockerComposeBaseFilePath="$(DockerComposeBaseFilePath)"
+                               DockerComposeProjectName="$(DockerComposeProjectName)"
+                               DockerComposeEnvFilePath="$(DockerComposeEnvFilePath)"
+                               AdditionalComposeFilePaths ="$(AdditionalComposeFilePaths)"
+                               ActiveDebugProfile="$(ActiveDebugProfile)"
+                               DockerDevelopmentMode="$(DockerDevelopmentMode)"
+                               SourceDirectory="$(DevEnvDir)..\..\CoreCon\Binaries\Phone Tools\Debugger"
+                               EnsureBitsPresent="true"
+                               ErrorLogFilePath="$(ErrorLogFilePath)">
+      <Output TaskParameter="OneCoreMsVsMonPath" PropertyName="DockerOneCoreMsVsMonPath" />
+    </ResolveOneCoreMsVsMonPath>
+
+    <CreateComposeVsGeneratedFiles DockerComposeProjectPath="$(DockerComposeProjectPath)"
+                                   DockerComposeBaseFilePath="$(DockerComposeBaseFilePath)"
+                                   DockerComposeProjectName="$(DockerComposeProjectName)"
+                                   DockerComposeEnvFilePath="$(DockerComposeEnvFilePath)"
+                                   AdditionalComposeFilePaths ="$(AdditionalComposeFilePaths)"
+                                   ActiveDebugProfile="$(ActiveDebugProfile)"
+                                   DockerDevelopmentMode="$(DockerDevelopmentMode)"
+                                   DockerVsDbgPath="$(DockerVsDbgPath)"
+                                   DockerMsVsMonPath="$(DockerMsVsMonPath)"
+                                   DockerOneCoreMsVsMonPath="$(DockerOneCoreMsVsMonPath)"
+                                   ServiceReferences="@(DockerServiceReferences)"
+                                   ErrorLogFilePath="$(ErrorLogFilePath)"
+                                   SkipDefaultImageLabels ="$(SkipDefaultImageLabels)"/>
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerPrepareForBuild
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerPrepareForBuild" Condition=" '$(DockerCleanedComposeProjectCache)' != 'True' ">
+    <PrepareForBuild DockerComposeProjectPath="$(DockerComposeProjectPath)"
+                     DockerComposeBaseFilePath="$(DockerComposeBaseFilePath)"
+                     DockerComposeProjectName="$(DockerComposeProjectName)"
+                     DockerComposeEnvFilePath="$(DockerComposeEnvFilePath)"
+                     AdditionalComposeFilePaths ="$(AdditionalComposeFilePaths)"
+                     ActiveDebugProfile="$(ActiveDebugProfile)"
+                     DockerDevelopmentMode="$(DockerDevelopmentMode)"
+                     ErrorLogFilePath="$(ErrorLogFilePath)" />
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerBuildServiceReferences
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerBuildServiceReferences" Condition=" '@(DockerServiceReferences)' != '' ">
+    <MSBuild Projects="@(DockerServiceReferences)"
+             Targets="DockerPackageService"
+             Properties="Configuration=$(Configuration);DockerComposeProjectPath=$(DockerComposeProjectPath);DockerComposeServiceNames=%(DockerServiceReferences.ServiceNames)"
+             Condition=" '$(DockerDevelopmentMode)' == 'Regular' AND '$(PublishAot)' != 'true' And '$(DockerPublishLocally)' != 'false'"/>
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerPrepareForLaunch
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerPrepareForLaunch" Condition=" Exists('$(DockerIntermediateOutputPath)\launch.sem') ">
+    <ResolveVsDbgPath DockerComposeProjectPath="$(DockerComposeProjectPath)"
+                      DockerComposeBaseFilePath="$(DockerComposeBaseFilePath)"
+                      DockerComposeProjectName="$(DockerComposeProjectName)"
+                      DockerComposeEnvFilePath="$(DockerComposeEnvFilePath)"
+                      AdditionalComposeFilePaths ="$(AdditionalComposeFilePaths)"
+                      ActiveDebugProfile="$(ActiveDebugProfile)"
+                      DockerDevelopmentMode="$(DockerDevelopmentMode)"
+                      EnsureBitsPresent="true"
+                      IncludeArm64Bits="$(DockerComposeIncludeArm64Debuggers)"
+                      ErrorLogFilePath="$(ErrorLogFilePath)"
+                      Condition="'$(DockerTargetOS)' == 'Linux'">
+      <Output TaskParameter="VsDbgPath" PropertyName="DockerVsDbgPath" />
+    </ResolveVsDbgPath>
+
+    <ResolveMsVsMonPath DockerComposeProjectPath="$(DockerComposeProjectPath)"
+                        DockerComposeBaseFilePath="$(DockerComposeBaseFilePath)"
+                        DockerComposeProjectName="$(DockerComposeProjectName)"
+                        DockerComposeEnvFilePath="$(DockerComposeEnvFilePath)"
+                        AdditionalComposeFilePaths ="$(AdditionalComposeFilePaths)"
+                        ActiveDebugProfile="$(ActiveDebugProfile)"
+                        DockerDevelopmentMode="$(DockerDevelopmentMode)"
+                        SourceDirectory="$(DevEnvDir)Remote Debugger"
+                        ErrorLogFilePath="$(ErrorLogFilePath)">
+      <Output TaskParameter="MsVsMonPath" PropertyName="DockerMsVsMonPath" />
+    </ResolveMsVsMonPath>
+
+    <ResolveOneCoreMsVsMonPath DockerComposeProjectPath="$(DockerComposeProjectPath)"
+                               DockerComposeBaseFilePath="$(DockerComposeBaseFilePath)"
+                               DockerComposeProjectName="$(DockerComposeProjectName)"
+                               DockerComposeEnvFilePath="$(DockerComposeEnvFilePath)"
+                               AdditionalComposeFilePaths ="$(AdditionalComposeFilePaths)"
+                               DockerDevelopmentMode="$(DockerDevelopmentMode)"
+                               SourceDirectory="$(DevEnvDir)..\..\CoreCon\Binaries\Phone Tools\Debugger"
+                               EnsureBitsPresent="true"
+                               ErrorLogFilePath="$(ErrorLogFilePath)">
+      <Output TaskParameter="OneCoreMsVsMonPath" PropertyName="DockerOneCoreMsVsMonPath" />
+    </ResolveOneCoreMsVsMonPath>
+
+    <PrepareForLaunch DockerComposeProjectPath="$(DockerComposeProjectPath)"
+                      DockerComposeBaseFilePath="$(DockerComposeBaseFilePath)"
+                      DockerComposeProjectName="$(DockerComposeProjectName)"
+                      DockerComposeEnvFilePath="$(DockerComposeEnvFilePath)"
+                      DockerComposeUpArguments="$(DockerComposeUpArguments)"
+                      AdditionalComposeFilePaths ="$(AdditionalComposeFilePaths)"
+                      ActiveDebugProfile="$(ActiveDebugProfile)"
+                      DockerDevelopmentMode="$(DockerDevelopmentMode)"
+                      ErrorLogFilePath="$(ErrorLogFilePath)" />
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerCleanComposeProjectCache
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerCleanComposeProjectCache">
+    <PropertyGroup>
+      <DockerCleanedComposeProjectCache>True</DockerCleanedComposeProjectCache>
+    </PropertyGroup>
+    <CleanComposeProjectCache DockerComposeProjectPath="$(DockerComposeProjectPath)" />
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerGetComposeEnvFile
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerGetComposeEnvFilePath" Outputs="$(DockerComposeEnvFilePath)">
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerGetComposeBaseFilePath
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerGetComposeBaseFilePath" Outputs="$(DockerComposeBaseFilePath)">
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerGetAdditionalComposeFilePaths
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerGetAdditionalComposeFilePaths" Outputs="$(AdditionalComposeFilePaths)">
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerGetBuildArguments
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerGetBuildArguments" Outputs="$(DockerComposeBuildArguments)">
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerGetDockerComposeProjectName
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerGetDockerComposeProjectName" Outputs="$(DockerComposeProjectName)">
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerCleanWorkspace
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerCleanWorkspace">
+    <PropertyGroup>
+      <DockerComposeBuildNoCache>True</DockerComposeBuildNoCache>
+    </PropertyGroup>
+    <CleanWorkspace DockerComposeProjectPath="$(DockerComposeProjectPath)"
+                    DockerComposeBaseFilePath="$(DockerComposeBaseFilePath)"
+                    DockerComposeProjectName="$(DockerComposeProjectName)"
+                    DockerComposeEnvFilePath="$(DockerComposeEnvFilePath)"
+                    AdditionalComposeFilePaths ="$(AdditionalComposeFilePaths)"
+                    DockerComposeDownArguments="$(DockerComposeDownArguments)"
+                    DockerDevelopmentMode="$(DockerDevelopmentMode)"
+                    ErrorLogFilePath="$(ErrorLogFilePath)" />
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerComposeDownContainers
+
+  ***********************************************************************************************
+  -->
+
+  <Target Name="DockerComposeDownContainers" DependsOnTargets="DockerSetDevelopmentMode">
+    <ComposeDownContainers DockerComposeProjectPath="$(DockerComposeProjectPath)"
+                           DockerComposeBaseFilePath="$(DockerComposeBaseFilePath)"
+                           DockerComposeProjectName="$(DockerComposeProjectName)"
+                           DockerComposeEnvFilePath="$(DockerComposeEnvFilePath)"
+                           AdditionalComposeFilePaths ="$(AdditionalComposeFilePaths)"
+                           ActiveDebugProfile="$(ActiveDebugProfile)"
+                           DockerComposeDownArguments="$(DockerComposeDownArguments)"
+                           DockerDevelopmentMode="$(DockerDevelopmentMode)"
+                           ErrorLogFilePath="$(ErrorLogFilePath)" />
+  </Target>
+
+  <!--
+  ***********************************************************************************************
+
+  TARGET : DockerComposeProjectBuild
+
+  ***********************************************************************************************
+  -->
+
+  <!-- This target is invoked during building a docker compose project, which happens when DockerComposeProjectPath is the same as ProjectPath. -->
+  <Target Name="DockerComposeProjectBuild" Condition=" '$(DockerCleanedComposeProjectCache)' != 'True' ">
+    <PropertyGroup>
+      <_DockerDevelopmentMode Condition=" '$(DockerDevelopmentMode)' != '' ">$(DockerDevelopmentMode)</_DockerDevelopmentMode>
+      <_DockerDevelopmentMode Condition=" '$(_DockerDevelopmentMode)' == '' ">Regular</_DockerDevelopmentMode>
+    </PropertyGroup>
+
+    <ComposeBuild Condition=" '$(_DockerDevelopmentMode)' == 'Regular' And '$(DockerComposeProjectPath)' != '' "
+                  DockerComposeProjectPath="$(DockerComposeProjectPath)"
+                  DockerDevelopmentMode="$(_DockerDevelopmentMode)"
+                  ProjectPath="$(MSBuildProjectFullPath)"
+                  NoCache="$(DockerComposeBuildNoCache)"
+                  Configuration="$(Configuration)"
+                  AdditionalComposeFilePaths ="$(AdditionalComposeFilePaths)"
+                  ActiveDebugProfile="$(ActiveDebugProfile)"
+                  DockerComposeEnvFilePath="$(DockerComposeEnvFilePath)"
+                  DockerComposeBaseFilePath ="$(DockerComposeBaseFilePath)"
+                  DockerComposeProjectName="$(DockerComposeProjectName)"
+                  DockerComposeBuildArguments="$(DockerComposeBuildArguments)"/>
+
+    <CallTarget Targets="ContainerBuild"
+                Condition=" '$(_DockerDevelopmentMode)' == 'Regular' And '$(DockerComposeProjectPath)' == '' " />
+  </Target>
+
+</Project>

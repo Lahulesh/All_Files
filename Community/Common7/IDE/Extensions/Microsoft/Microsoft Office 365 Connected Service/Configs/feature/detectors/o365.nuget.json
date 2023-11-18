@@ -1,0 +1,12 @@
+{
+  "kind": "nuget.generic",
+  "confidence": "Medium",
+  "featureId": "o365",
+  "componentId": "nuget",
+  "model": {
+    "packages": {
+      "Microsoft.Graph": "",
+      "Microsoft.IdentityModel.Clients.ActiveDirectory": ""
+    }
+  }
+}

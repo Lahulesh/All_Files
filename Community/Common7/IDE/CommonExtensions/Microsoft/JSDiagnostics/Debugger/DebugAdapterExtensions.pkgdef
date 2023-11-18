@@ -1,0 +1,170 @@
+﻿; Adapter launcher registration for V3 debugger
+[$RootKey$\CLSID\{21d902f4-d9da-4330-8ed3-05fa62305f4b}]
+"Assembly"="Microsoft.VisualStudio.JavaScript.Diagnostics.JSDebugger"
+"Class"="Microsoft.VisualStudio.WebClient.Diagnostics.AdapterLauncher"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.JavaScript.Diagnostics.JSDebugger.dll"
+
+; Custom Protocol Extension
+[$RootKey$\CLSID\{D136063F-F239-4BFC-93CE-C0CF4C4BCFAC}]
+"Assembly"="Microsoft.VisualStudio.JavaScript.Diagnostics.JSDebugger"
+"Class"="Microsoft.VisualStudio.WebClient.Diagnostics.JavascriptDebuggersProtocolExtension"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.JavaScript.Diagnostics.JSDebugger.dll"
+
+[$RootKey$\AD7Metrics\PortSupplier\{61D1E397-7AA6-4ED9-815A-0C5CA0E728B4}]
+"Name"="Chrome devtools protocol websocket (V3)"
+"CLSID"="{0C142B5E-FE7D-4C6B-8193-71AF0D3A810C}"
+
+; ------- AD7 Debug Port Provider registration (for attach scenarios) ---------
+[$RootKey$\CLSID\{0C142B5E-FE7D-4C6B-8193-71AF0D3A810C}]
+"Assembly"="Microsoft.VisualStudio.JavaScript.Diagnostics.JSDebugger"
+"Class"="Microsoft.VisualStudio.WebClient.WKDebug.Engine.AD7.AD7DebugPortSupplier"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.JavaScript.Diagnostics.JSDebugger.dll"
+"ThreadingModel"="Free"
+
+; ------------------Program Provider Registration--------------------
+[$RootKey$\CLSID\{A303A8ED-17D9-496D-8983-D3E35D9CA62C}]
+"Assembly"="Microsoft.VisualStudio.JavaScript.Diagnostics.JSDebugger"
+"Class"="Microsoft.VisualStudio.JavaScript.Diagnostics.AD7.AD7JSTSProgramProvider"
+"InprocServer32"="$WinDir$\SYSTEM32\MSCOREE.DLL"
+"CodeBase"="$PackageFolder$\Microsoft.VisualStudio.JavaScript.Diagnostics.JSDebugger.dll"
+"ThreadingModel"="Free"
+
+; -------ASP.Net Framework, ASP.Net Core, and Websites Registration-------
+; Engine registration for launching ASP.NET project
+[$RootKey$\AD7Metrics\Engine\{394120B6-2FF9-4D0D-8953-913EF5CD0BCD}]
+"CLSID"="{DAB324E9-7B35-454C-ACA8-F6BB0D5C8673}"
+"AlwaysLoadLocal"=dword:00000001
+"Attach"=dword:00000001
+"AddressBP"=dword:00000000
+"AutoSelectPriority"=dword:00000004
+"CallstackBP"=dword:00000000
+"ConditionalBP"=dword:00000001
+"Exceptions"=dword:00000001
+"ExceptionBreakpointCategory"="{1ce4d9f7-faac-42ee-b352-87fdfb6fb37b}"
+"Name"="JavaScript and TypeScript"
+"AdapterTelemetryEventsNamespace"="vs/bpt/diagnostics/v3debugadapter/"
+"AdapterTelemetryPropertiesNamespace"="VS.BPT.Diagnostics.DebugAdapter."
+"LocalsScopeName"="Local"
+"AdapterLauncher"="{21d902f4-d9da-4330-8ed3-05fa62305f4b}"
+"CustomProtocolExtension"="{D136063F-F239-4BFC-93CE-C0CF4C4BCFAC}"
+"PortSupplier"="{61D1E397-7AA6-4ED9-815A-0C5CA0E728B4}"
+"DebugEngineType"="javascript"
+
+; Set to "1" if the debug adapter should be used to launch the target process in non-debugging scenarios such as
+;  Ctrl-F5 by setting the "noDebug" field to "true" in the launch configuration.  If this value is not set to "1",
+;  the project system in VS must launch the process itself or call IVsDebugger4.LaunchDebugTargets4 with a
+;  VsDebugTargetInfo4 where "bstrExe" must contain a valid path to an executable and "LaunchFlags" must include
+;  the "DBGLAUNCH_NoDebug" flag.
+"UseEngineForNonDebugLaunch"=dword:00000001
+
+@="VSCode Debugger Host"
+
+; Map exceptions codes so they'll work on locales other than US - For launch debugger
+[$RootKey$\AD7Metrics\Engine\{394120B6-2FF9-4D0D-8953-913EF5CD0BCD}\ExceptionBreakpointMappings]
+"All Exceptions"="all"
+"Uncaught Exceptions"="uncaught"
+
+; Custom expressions to support hit count breakpoints
+; These should be removed when this bug fix is ported to debug adapters inside VS:
+; https://github.com/Microsoft/vscode-chrome-debug-core/issues/291
+[$RootKey$\AD7Metrics\Engine\{394120B6-2FF9-4D0D-8953-913EF5CD0BCD}\HitCountBreakpointExpressions]
+"Equal"="= {0}"
+"EqualOrGreater"=">= {0}"
+"Mod"="% {0}"
+
+; Register launching Chrome/PineZorro as supporting JavaScript debugging with VS debugger
+[$RootKey$\Debugger\JavaScript Engines\{394120B6-2FF9-4D0D-8953-913EF5CD0BCD}]
+
+; -------Debug attach and program provider-------
+;Debugger engine for providing a program provider for msedge and chrome
+[$RootKey$\AD7Metrics\Engine\{3FBCC828-6272-46D4-B5FA-B7E643672113}]
+"CLSID"="{DAB324E9-7B35-454C-ACA8-F6BB0D5C8673}"
+"AlwaysLoadLocal"=dword:00000001
+"Attach"=dword:00000001
+"AddressBP"=dword:00000000
+"AutoSelectPriority"=dword:00000004
+"CallstackBP"=dword:00000000
+"ConditionalBP"=dword:00000001
+"Exceptions"=dword:00000001
+"ExceptionBreakpointCategory"="{1ce4d9f7-faac-42ee-b352-87fdfb6fb37b}"
+"Name"="JavaScript and TypeScript"
+"AdapterTelemetryEventsNamespace"="vs/bpt/diagnostics/v3debugadapter/"
+"AdapterTelemetryPropertiesNamespace"="VS.BPT.Diagnostics.DebugAdapter."
+"LocalsScopeName"="Local"
+"AdapterLauncher"="{21d902f4-d9da-4330-8ed3-05fa62305f4b}"
+"CustomProtocolExtension"="{D136063F-F239-4BFC-93CE-C0CF4C4BCFAC}"
+"PortSupplier"="{708C1ECA-FF48-11D2-904F-00C04FA302A1}"
+"ProgramProvider"="{A303A8ED-17D9-496D-8983-D3E35D9CA62C}"
+"AlwaysLoadProgramProviderLocal"=dword:00000001
+"DebugEngineType"="javascript"
+@="VSCode Debugger Host"
+
+
+[$RootKey$\Debugger\JavaScript Engines\{3FBCC828-6272-46D4-B5FA-B7E643672113}]
+
+; ------------------------Blazor specific Registration---------------------
+; Engine registration for launching a Blazor ASP.NET project
+[$RootKey$\AD7Metrics\Engine\{6DF05533-106F-44AE-B329-D7FCCC9B5DC0}]
+"CLSID"="{DAB324E9-7B35-454C-ACA8-F6BB0D5C8673}"
+"AlwaysLoadLocal"=dword:00000001
+"Attach"=dword:00000001
+"AddressBP"=dword:00000000
+"AutoSelectPriority"=dword:00000004
+"CallstackBP"=dword:00000000
+"ConditionalBP"=dword:00000001
+"Exceptions"=dword:00000001
+"ExceptionBreakpointCategory"="{1ce4d9f7-faac-42ee-b352-87fdfb6fb37b}"
+"Name"="Blazor WebAssembly"
+"AdapterTelemetryEventsNamespace"="vs/bpt/diagnostics/v3debugadapter/"
+"AdapterTelemetryPropertiesNamespace"="VS.BPT.Diagnostics.DebugAdapter."
+"LocalsScopeName"="Local"
+"AdapterLauncher"="{21d902f4-d9da-4330-8ed3-05fa62305f4b}"
+"CustomProtocolExtension"="{D136063F-F239-4BFC-93CE-C0CF4C4BCFAC}"
+"PortSupplier"="{61D1E397-7AA6-4ED9-815A-0C5CA0E728B4}"
+"DebugEngineType"="blazor"
+@="VSCode Debugger Host"
+
+; Map exceptions codes so they'll work on locales other than US - For launch debugger
+[$RootKey$\AD7Metrics\Engine\{6DF05533-106F-44AE-B329-D7FCCC9B5DC0}\ExceptionBreakpointMappings]
+"All Exceptions"="all"
+"Uncaught Exceptions"="uncaught"
+
+; Custom expressions to support hit count breakpoints
+; These should be removed when this bug fix is ported to debug adapters inside VS:
+; https://github.com/Microsoft/vscode-chrome-debug-core/issues/291
+[$RootKey$\AD7Metrics\Engine\{6DF05533-106F-44AE-B329-D7FCCC9B5DC0}\HitCountBreakpointExpressions]
+"Equal"="= {0}"
+"EqualOrGreater"=">= {0}"
+"Mod"="% {0}"
+
+; Register launching Chrome/PineZorro as supporting JavaScript debugging with VS debugger
+[$RootKey$\Debugger\JavaScript Engines\{6DF05533-106F-44AE-B329-D7FCCC9B5DC0}]
+
+; ----------------------Shared Exception Registrations---------------------
+[$RootKey$\AD7Metrics\Exception\{1ce4d9f7-faac-42ee-b352-87fdfb6fb37b}]
+
+; Category registration
+[$RootKey$\AD7Metrics\Exception\{1ce4d9f7-faac-42ee-b352-87fdfb6fb37b}\JavaScript Exceptions]
+
+; Default state for exceptions in this category (Break when user uncaught)
+"State"=dword:10000
+
+;
+; Exception type registrations
+;   Both "State" and "Code" are required for all exception types
+;
+
+; All Exceptions - State = Break when thrown
+[$RootKey$\AD7Metrics\Exception\{1ce4d9f7-faac-42ee-b352-87fdfb6fb37b}\JavaScript Exceptions\All Exceptions]
+"State"=dword:00000000
+
+; Numeric code associated with this exception (generally 0 - include 0x1000 in "State" if non-zero)
+"Code"=dword:00000000
+
+; Uncaught Exceptions - State = Break when thrown
+[$RootKey$\AD7Metrics\Exception\{1ce4d9f7-faac-42ee-b352-87fdfb6fb37b}\JavaScript Exceptions\Uncaught Exceptions]
+"State"=dword:00000000
+
+; Numeric code associated with this exception (generally 0 - include 0x1000 in "State" if non-zero)
+"Code"=dword:00000000

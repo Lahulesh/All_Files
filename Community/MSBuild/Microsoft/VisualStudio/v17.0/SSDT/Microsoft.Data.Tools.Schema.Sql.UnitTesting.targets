@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Reference Include="Microsoft.Data.Tools.Components, Version=$(VisualStudioVersion).0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+  </ItemGroup>
+
+  <Choose>
+    <When Condition=" '$(IncludeSsdtUnitTestAdapter)' != '' ">
+      <ItemGroup>
+        <Reference Include="Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter, Version=$(VisualStudioVersion).0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+  </Choose>
+
+  <!-- Adding a hint to Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll specifically for Build Tools for Visual Studio. -->
+  <ItemGroup>
+    <Reference Update="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+      <HintPath>$(VsInstallRoot)\Common7\IDE\Extensions\TestPlatform\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <ReferencePath Condition="$(SSDTPath) != ''">$(ReferencePath);$(SSDTPath)</ReferencePath>
+  </PropertyGroup>
+
+</Project>

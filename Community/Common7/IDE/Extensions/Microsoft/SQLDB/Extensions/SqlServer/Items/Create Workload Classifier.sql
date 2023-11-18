@@ -1,0 +1,13 @@
+﻿CREATE WORKLOAD GROUP defaultWG WITH  (
+     MIN_PERCENTAGE_RESOURCE = 0 
+   , CAP_PERCENTAGE_RESOURCE = 1 
+   , REQUEST_MIN_RESOURCE_GRANT_PERCENT = 0.75
+)
+GO
+
+CREATE WORKLOAD CLASSIFIER $rawname$
+    WITH  (
+            WORKLOAD_GROUP = 'defaultWG',
+            MEMBERNAME = 'RoleOrUserOrLogin'
+          );
+GO

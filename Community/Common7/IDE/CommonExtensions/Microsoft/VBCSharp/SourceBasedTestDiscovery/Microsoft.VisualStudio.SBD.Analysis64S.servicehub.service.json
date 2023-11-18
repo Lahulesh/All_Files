@@ -1,0 +1,11 @@
+{
+  "host": "netfx.anycpu",
+  "hostId": "RoslynCodeAnalysisServiceS",
+  "hostGroupAllowed": true,
+  "entryPoint": {
+    "assemblyPath": "Microsoft.CodeAnalysis.UnitTesting.SourceBasedTestDiscovery.Core.dll",
+    "fullClassName": "Microsoft.CodeAnalysis.UnitTesting.SourceBasedTestDiscovery.RemoteAnalysisService+Factory",
+    "appBasePath": "%VSAPPIDDIR%",
+    "configPath": "%PkgDefApplicationConfigFile%"
+  }
+}

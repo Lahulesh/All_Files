@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+    <Metadata>
+        <Identity Id="Microsoft.VisualStudio.DebuggerVisualizers.IEnumerableVisualizer" Version="17.8.10926.1" Language="en-US" Publisher="Microsoft Corporation" />
+        <DisplayName>IEnumerableVisualizer</DisplayName>
+        <Description xml:space="preserve">IEnumerable Custom Visualizer.</Description>
+    </Metadata>
+    <Installation AllUsers="true" SystemComponent="true">
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.3,)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+    </Installation>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.7.2,)" />
+    </Dependencies>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.DotnetCustomVisualizer" Path="IEnumerableVisualizer.UI.dll" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" Path="net4.6.2\IEnumerableVisualizer.DebuggeeSide.dll" AssemblyName="IEnumerableVisualizer.DebuggeeSide, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" Path="netstandard2.0\IEnumerableVisualizer.DebuggeeSide.dll" AssemblyName="IEnumerableVisualizer.DebuggeeSide, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    </Assets>
+</PackageManifest>
